@@ -16,9 +16,9 @@
 
 ## Inference
 
-Run `bash run_inference.sh` to inference the Australian region. The inference procedure works on a per variable per time step basis. One can edit the `var_time` and `barra2_var_names` in the script to target different times and variables.
+* Run `bash run_inference.sh` to inference the Australian region. The inference procedure works on a per variable per time step basis. One can edit the `var_time` and `barra2_var_names` in the script to target different times and variables.
 
-Run `bash run_inference_global.sh` to inference the global region for the entire world.
+* Run `bash run_inference_global.sh` to inference the global region for the entire world.
 
 The model checkpoints are located at /g/data/dk92/data/BARRADiff on Gadi.
 
