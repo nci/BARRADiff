@@ -1,0 +1,16 @@
+# Python VirtualEnv directory
+venv_dir=/scratch/z00/jxg900/python_env
+
+# Training set directory
+training_data_dir=<some base dir>/barra2_sharded_training_set
+
+# Model checkpoints during training run, including weights, optimizer states, data loader states, ...
+training_run_dir=<some base dir>/barra2_fsdp_training_run
+
+# Model weights for infereence. Ususally this is equal to $training_run_dir to load the latest
+# training checkpoints
+model_weight_dir=<some base dir>/barra2_fsdp_model_weights
+
+# Inference outputs
+inference_run_dir=<some base dir>/barra2_inference
+

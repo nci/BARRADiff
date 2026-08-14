@@ -1,0 +1,639 @@
+[
+    {
+        "Variable": "clh",
+        "Long name (Units)": "High Level Cloud Fraction (%)",
+        "Description": "This parameter is the proportion of a grid box covered by cloud occurring in the high levels of the troposphere between ICAO (International Civil Aviation Organization) 500 and 150 hPa levels (5574m and 13608m above mean sea level). It is calculated from cloud at the appropriate model levels between this range. The parameter is calculated under maximum-random overlap assumption.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "cll",
+        "Long name (Units)": "Low Level Cloud Fraction (%)",
+        "Description": "This parameter is the proportion of a grid box covered by cloud occurring in the lower levels of the troposphere between ICAO (International Civil Aviation Organization) 1000hPa and 800Pa levels (111m and 1949m above mean sea level). It is calculated from cloud at the appropriate model levels between this range. The parameter is calculated under maximum-random overlap assumption.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "clm",
+        "Long name (Units)": "Mid Level Cloud Fraction (%)",
+        "Description": "This parameter is the proportion of a grid box covered by cloud occurring in the middle levels of the troposphere between ICAO (International Civil Aviation Organization) 800hPa and 500Pa levels (1949m and 5574m above mean sea level). It is calculated from cloud at the appropriate model levels between this range. The parameter is calculated under maximum-random overlap assumption.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "clt",
+        "Long name (Units)": "Total Cloud Cover Percentage (%)",
+        "Description": "This parameter is the proportion of a grid box covered by cloud occurring at all model levels through the atmosphere. The parameter is calculated under maximum-random overlap assumption.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "clwvi",
+        "Long name (Units)": "Condensed Water Path (kg m-2)",
+        "Description": "The vertical integral of liquid water mass contained in clouds. This parameter has units of kg/m2.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "evspsbl",
+        "Long name (Units)": "Evaporation Including Sublimation and Transpiration (kg m-2 s-1)",
+        "Description": "The rate of evapotranspiration from the surface to the atmosphere. This includes evaporation from the sea surface, evaporation from the soil surface, transpiration from plants and evaporation from the vegetative canopy.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "helicity* (helicity, helicitymax, helicitymin)",
+        "Long name (Units)": "Updraft Helicity (2000-5000m) (m2 s-2)",
+        "Description": "This parameter is a measure of the rotation within a storm's updraft, combining vertical velocity (updraft speed) and vertical vorticity (rotation). This is calculated by integrating the product of updraft speed and vorticity over a specific depth of the atmosphere 2-5 km AGL. It is useful for identifying areas where strong, rotating updrafts are likely to occur, which is associated with severe weather events like supercells and tornadoes. The parameter is available as instantaneous, time-maximum and time-minimum quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min"
+    },
+    {
+        "Variable": "hfls",
+        "Long name (Units)": "Surface Upward Latent Heat Flux (W m-2)",
+        "Description": "This parameter is the transfer of heat from the Earth's surface to the atmosphere through evaporation from water bodies (oceans, lakes, soil) and evapotranspiration from plants. It is a flux parameter to indicate it is a quantity expressed as per unit area. It is useful for understanding the energy and water cycles influencing weather patterns and changes in surface temperatures.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "hfss",
+        "Long name (Units)": "Surface Upward Sensible Heat Flux (W m-2)",
+        "Description": "This parameter is the transfer of heat from the Earth's surface to the atmosphere through conduction and convection, due to the temperature differences between the surface and the air. It is a flux parameter to indicate it is a quantity expressed as per unit area. It is useful for understanding the energy exchange between the surface and the atmosphere, which influences weather patterns.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "hurs",
+        "Long name (Units)": "Near-Surface Relative Humidity (%)",
+        "Description": "This parameter is the amount of water vapour present in the air at 1.5m (screen-level) above the surface of land, sea or inland waters. It is expressed as a percentage of the amount of water vapour in the air to the maximum amount the air can hold at a given temperature.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "hus* (hus10, hus100, hus150, hus1000, hus150, hus20, hus200, hus250, hus30, hus300, hus400, hus50, hus500, hus600, hus70, hus700, hus750, hus800, hus850, hus900, hus925, hus950, hus975)",
+        "Long name (Units)": "Specific Humidity (1)",
+        "Description": "This parameter is the ratio of the mass of water vapour to the total mass of air, expressed as kilogram of water vapour per kilogram of moist air. The total mass of moist air includes the mass of the dry air, water vapour, cloud liquid and ice, rain and snow. This is available at multiple pressure levels in the atmosphere.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "huss",
+        "Long name (Units)": "Near-Surface Specific Humidity (1)",
+        "Description": "This parameter is the amount of water vapour present in the air at 1.5m (screen-level) above the surface of land, sea or inland waters. It is expressed as the ratio of the mass of water vapour to the total mass of moist air, expressed as kilogram of water vapour per kilogram of moist air.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "maxcolrefl",
+        "Long name (Units)": "Maximum Radar Reflectivity in the grid column due to all hydrometeors (dBZ)",
+        "Description": "This parameter represents the maximum value of radar reflectivity in each model column, defined as extending from the surface to the top of the model (40-80 km). It includes contributions from all hydrometeors, namely rain, snow, graupel and liquid cloud. Its units are dBZ and a minimum value of -40 dBZ is set where there is no cloud or precipitation.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr"
+    },
+    {
+        "Variable": "maxcolwa",
+        "Long name (Units)": "Maximum vertical wind speed in column (m s-1)",
+        "Description": "This parameter is the maximum value of speed of vertical air motion in each model column. It is expressed with a geometric vertical coordinate system and has units of metres per second. Positive values correspond upward motion and negative values indicate upward motion.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr"
+    },
+    {
+        "Variable": "mrfso",
+        "Long name (Units)": "Soil Frozen Water Content (kg m-2)",
+        "Description": "The total mass of frozen water per unit area summed over the four soil layers. This parameter has two spatial coordinates. There are four soil levels, representing a total depth of (0-3m) below the surface. Units are kg/m2. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrfsol",
+        "Long name (Units)": "Frozen Water Content of Soil Layer (kg m-2)",
+        "Description": "The total mass of frozen water per unit area in each soil layer. This parameter has three spatial coordinates, with the third representing the soil level. There are four soil levels, representing (0-10cm), (10-35cm), (35cm-1m) and (1m-3m) below the surface. Units are kg/m2. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrfsos",
+        "Long name (Units)": "Frozen Water Content in Upper Portion of Soil Column (kg m-2)",
+        "Description": "The mass of frozen moisture per unit area in the top soil layer. Units are kg/m2. The top soil layer represents the top 10-cm below the surface.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrro",
+        "Long name (Units)": "Total Runoff (kg m-2 s-1)",
+        "Description": "The total rate of runoff per unit area, precipitation which hits the ground and moves away rather than being absorbed by the soil. Units are kg/m2/s. This parameter represents the sum of both surface and subsurface runoff. A river routing model has not been applied, so runoff is removed from the system as soon as it forms. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrros",
+        "Long name (Units)": "Surface Runoff (kg m-2 s-1)",
+        "Description": "The rate of surface runoff per unit area, precipitation which hits the ground and moves away rather than being absorbed by the soil. Units are kg/m2. This parameter represents the surface runoff only. A river routing model has not been applied, so runoff is removed from the system as soon as it forms. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrso",
+        "Long name (Units)": "Total Soil Moisture Content (kg m-2)",
+        "Description": "The total mass of moisture summed over the four soil layers. This parameter has two spatial coordinates. There are four soil levels, representing a total depth of (0-3m) below the surface. Units are kg/m2. Divide by the soil level depths (3 m) and by the density of water (1000 kg/m3) to convert into the moisture fraction. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrsol",
+        "Long name (Units)": "Total Water Content of Soil Layer (kg m-2)",
+        "Description": "The total mass of moisture per unit area in each soil layer. This parameter has three spatial coordinates, with the third representing the soil level. There are four soil levels, representing (0-10cm), (10-35cm), (35cm-1m) and (1m-3m) below the surface. Units are kg/m2. Divide by the soil level depths (0.1, 0.25, 0.65 and 2 m) and by the density of water (1000 kg/m3) to convert into the moisture fraction. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "mrsos",
+        "Long name (Units)": "Moisture in Upper Portion of Soil Column (kg m-2)",
+        "Description": "The mass of moisture per unit area in the top soil layer. Units are kg/m2. The top soil layer represents the top 10-cm below the surface. This parameter is valid on land points only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "omega500",
+        "Long name (Units)": "Downward Air Velocity in pressure coordinates (Pa s-1)",
+        "Description": "This parameter is the speed of air motion in the upward or downward direction. It is expressed with a pressure-based vertical coordinate system and has units of pascals per second. Since atmospheric pressure decreases with height, positive values corresponds downward motion and negative values indicate upward motion.",
+        "Available For (model/domain_id/freq)": "BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "orog",
+        "Long name (Units)": "Surface Altitude (m)",
+        "Description": "The parameter is the altitude of the Earth's surface or the geometric height of the surface above the geoid. It is the lower boundary of the UK Met Office Unified Model over land and describes the physical features and elevation variations across landscapes. It is also known as surface geopotential height. This parameter does not vary in time.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/fx, BARRA-R2/AUS-11/fx, BARRA-R2/AUST-11/fx, BARRA-RE2/AUS-22/fx"
+    },
+    {
+        "Variable": "pr",
+        "Long name (Units)": "Precipitation (kg m-2 s-1)",
+        "Description": "This parameter is the rate of total precipitation, comprising rain and snow, at the surface. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. In the case where the UK Met Office Unified Model was set up with a horizontal grid spacing of 10 km or longer, the parameter combines the contributions from the convection scheme and the cloud scheme. The rate of precipitation produced by the convection scheme is available in the parameter prc, and that produced by the cloud scheme is available in the parameter prra.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "prc",
+        "Long name (Units)": "Convective Precipitation (kg m-2 s-1)",
+        "Description": "This parameter is the rate of precipitation, comprising rain and snow, at the surface, generated by the convection parameterisation scheme in the UK Met Office Unified Model when set up with a horizontal grid spacing of 10 km or longer. The convection scheme estimates sub-grid scale convection and precipitation at spatial scales smaller than the grid length. This differs from the precipitation generated by the cloud scheme in the Unified Model, which describes the formation and dissipation of clouds and precipitation due to changes in atmospheric conditions simulated at spatial scales of the grid cell or longer. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. The total precipitation rate that combines the contributions from the convection scheme and the cloud scheme is available in the parameter pr. The contribution simulated by the cloud scheme is available in the parameter prra.",
+        "Available For (model/domain_id/freq)": "BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "prga",
+        "Long name (Units)": "Graupel Sediment Rate (kg kg-1 s-1)",
+        "Description": "This parameter is the rate of graupel at the surface, estimated by the cloud scheme in the UK Met Office Unified Model. Graupels forms when supercooled water droplets freeze onto falling snowflakes. The precipitation was generated as the result of changes in atmospheric conditions simulated at the spatial scales of the model grid cell or longer. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water equivalent spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min"
+    },
+    {
+        "Variable": "prhmax",
+        "Long name (Units)": "Monthly Mean Daily Maximum Hourly Precipitation Rate (kg m-2 s-1)",
+        "Description": "This parameter is the daily maximum hourly rate of total precipitation, comprising rain and snow, at the surface. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. In the case where the UK Met Office Unified Model was set up with a horizontal grid spacing of 10 km or longer, the parameter combines the contributions from the convection scheme and the cloud scheme.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "prmax",
+        "Long name (Units)": "Hourly Maximum Precipitation Rate (kg m-2 s-1)",
+        "Description": "This parameter is the hourly maximum rate of total precipitation, comprising rain and snow, at the surface. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. In the case where the UK Met Office Unified Model was set up with a horizontal grid spacing of 10 km or longer, the parameter combines the contributions from the convection scheme and the cloud scheme.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUS-11/1hr, BARRA-RE2/AUS-22/1hr"
+    },
+    {
+        "Variable": "prra",
+        "Long name (Units)": "Large Scale Rainfall Rate (kg m-2 s-1)",
+        "Description": "This parameter is the rate of precipitation, comprising rain and snow, at the surface, generated by the cloud scheme in the UK Met Office Unified Model. The precipitation was generated as the result of changes in atmospheric conditions simulated at the spatial scales of the model grid cell or longer. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. The total precipitation rate that combines both rain and snow is available in the parameter pr.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min"
+    },
+    {
+        "Variable": "prsn",
+        "Long name (Units)": "Snowfall Flux (kg m-2 s-1)",
+        "Description": "This parameter is the rate of snow at the surface, generated by the cloud scheme in the UK Met Office Unified Model. The precipitation was generated as the result of changes in atmospheric conditions simulated at the spatial scales of the model grid cell or longer. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water equivalent spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second. The total precipitation rate that combines both rain and snow is available in the parameter pr.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "prsnmax",
+        "Long name (Units)": "Hourly Maximum Snowfall Flux (kg m-2 s-1)",
+        "Description": "This parameter is the hourly maximum rate of snow at the surface. The parameter is the rate the precipitation would have if it were spread evenly over the model grid cell. Since 1 kg of water equivalent spread evenly over 1 square-metre of surface has 1 mm depth, the units of kg m-2 s-1 are equivalent to mm per second.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr"
+    },
+    {
+        "Variable": "prw",
+        "Long name (Units)": "Water Vapor Path (kg m-2)",
+        "Description": "This parameter is the integrated mass of water vapour in a vertical column of the atmosphere, extending from the Earth's surface to the top of the atmosphere. It is useful for predicting precipitation and studying humidity levels.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "ps",
+        "Long name (Units)": "Surface Air Pressure (Pa)",
+        "Description": "This parameter is the pressure of the atmosphere at the surface of land, sea and inland water. Its units are pascals (Pa) and can be converted to units of hPa or millibars using the conversion 1 hPa = 1 mb = 100 Pa.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "psl",
+        "Long name (Units)": "Sea Level Pressure (Pa)",
+        "Description": "This parameter is the pressure of the atmosphere at the surface of the Earth, at the height of mean sea level, independent of the surface terrain. Its units are pascals (Pa) and can be converted to units of hPa or millibars using the conversion 1 hPa = 1 mb = 100 Pa. This parameter is the quantity often abbreviated as MSLP or PMSL.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "qfluxu",
+        "Long name (Units)": "Eastward column-integrated moisture flux (kg m-1 s-1)",
+        "Description": "This parameter is the movement of water vapour in the atmosphere from west to east, integrated over the vertical column of the atmosphere. It is useful for understanding the transport of moisture across regions, affecting weather patterns and precipitation.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-R2/AUS-11/3hr, BARRA-RE2/AUS-22/3hr"
+    },
+    {
+        "Variable": "qfluxv",
+        "Long name (Units)": "Northward column-integrated moisture flux (kg m-1 s-1)",
+        "Description": "This parameter is the movement of water vapour in the atmosphere from south to north, integrated over the vertical column of the atmosphere. It is useful for understanding the transport of moisture across regions, affecting weather patterns and precipitation.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-R2/AUS-11/3hr, BARRA-RE2/AUS-22/3hr"
+    },
+    {
+        "Variable": "rlds",
+        "Long name (Units)": "Surface Downwelling Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation that.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rldscs",
+        "Long name (Units)": "Surface Downwelling Clear-Sky Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation that is emitted by the atmosphere and reaches the Earth's surface under clear-sky conditions. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rlus",
+        "Long name (Units)": "Surface Upwelling Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation emitted by the Earth's surface and the reflected atmospheric downward longwave radiation. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rluscs",
+        "Long name (Units)": "Surface Upwelling Clear-Sky Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation emitted by the Earth's surface and the reflected atmospheric downward longwave radiation under clear-sky conditions. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rlut",
+        "Long name (Units)": "TOA Outgoing Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation emitted into space by the Earth and its atmosphere. It is also called the outgoing longwave radiation or OLR. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rlutcs",
+        "Long name (Units)": "TOA Outgoing Clear-Sky Longwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of longwave (infrared) radiation emitted into space by the Earth and its atmosphere without the interference of clouds. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsds",
+        "Long name (Units)": "Surface Downwelling Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the shortwave radiation from the Sun, incident on the Earth's surface. It is referred as a flux parameter to indicate it is a quantity expressed as per unit area. It is a combination of direct and diffused solar radiation. Its direct component has not accounted for the solar zenith angle. This parameter can be treated as an estimate of global horizontal irradiance (GHI).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsdscs",
+        "Long name (Units)": "Surface Downwelling Clear-Sky Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of solar radiation that reaches the Earth's surface under clear-sky conditions, without interference from clouds. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsdsdif",
+        "Long name (Units)": "Surface diffused downwelling shortwave radiation (W m-2)",
+        "Description": "This parameter is the diffused shortwave radiation from the Sun, incident on the Earth's surface. It is a flux parameter to indicate it is a quantity expressed as per unit area. Different from the direct shortwave radiation, it consists of rays that arrive at the surface after scattering by clouds and particles in the atmosphere. The parameter has been corrected for the solar zenith angle.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/20min"
+    },
+    {
+        "Variable": "rsdsdir",
+        "Long name (Units)": "Surface Direct Downwelling Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the direct shortwave radiation from the Sun, incident on the Earth's surface. It is a flux parameter to indicate it is a quantity expressed as per unit area. Different from the diffused shortwave radiation, it consists of rays that come directly from the Sun's position in the sky. The parameter has been corrected for the solar zenith angle and the effect of topography.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsdt",
+        "Long name (Units)": "TOA Incident Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of solar radiation that reaches the top of the Earth's atmosphere. This radiation is primarily shortwave. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rss",
+        "Long name (Units)": "Net downward shortwave flux at surface (W m-2)",
+        "Description": "This parameter is the difference between the incoming and outgoing shortwave radiation at the Earth's surface. The incoming radiation includes direct sunlight and diffused sky radiation that reaches the surface, and the outgoing radiation is the portion of the incoming radiation that is reflected back into the atmosphere, mainly due to the surface's albedo. Its value is positive when the incoming radiation exceeds the outgoing. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/20min"
+    },
+    {
+        "Variable": "rsus",
+        "Long name (Units)": "Surface Upwelling Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of shortwave solar radiation that is reflected back into the atmosphere from the Earth's surface, mainly due to the surface's albedo. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsuscs",
+        "Long name (Units)": "Surface Upwelling Clear-Sky Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of shortwave solar radiation that is reflected back into the atmosphere from the Earth's surface under clear-sky conditions, mainly due to the surface's albedo. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsut",
+        "Long name (Units)": "TOA Outgoing Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of shortwave solar radiation that is reflected back into space from the top of the Earth's atmosphere. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "rsutcs",
+        "Long name (Units)": "TOA Outgoing Clear-Sky Shortwave Radiation (W m-2)",
+        "Description": "This parameter is the amount of shortwave solar radiation that is reflected back into space from the top of the Earth's atmosphere, under clear-sky conditions. It does not include radiation reflected by cloud. It is a flux parameter to indicate it is a quantity expressed as per unit area.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "sfcMoisflx",
+        "Long name (Units)": "Surface Total Moisture Flux (kg m-2 s-1)",
+        "Description": "The total moisture flux per unit area between the surface and the atmosphere. This parameter does not include precipitation.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr"
+    },
+    {
+        "Variable": "sfcWind* (sfcWind, sfcWindmax, sfcWind10minmean)",
+        "Long name (Units)": "Near-Surface Wind Speed (m s-1)",
+        "Description": "This parameter is the wind speed at 10 metre above the surface of the Earth. The parameter is available as instantaneous, time-averaged and time-maximum quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "snd",
+        "Long name (Units)": "Snow Depth (m)",
+        "Description": "This parameter represents the instantaneous depth of snow on top of the land surface. It has units of metres. It is valid on land grid-cells only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "snm",
+        "Long name (Units)": "Surface Snow Melt (kg m-2 s-1)",
+        "Description": "This is the rate at which the snow mass per unit area on top of the land surface melts. It has units of kg/m2/s. It is valid on land grid-cells only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "snw",
+        "Long name (Units)": "Surface Snow Amount (kg m-2)",
+        "Description": "This parameter is the mass of snow per unit area present on the land surface. It has units of kg/m2. It is present on land grid-cells only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "soildrainage",
+        "Long name (Units)": "Drainage out of Soil Model (kg m-2 s-1)",
+        "Description": "This parameter is the rate of water drains freely from the bottom of the soil column in the Joint UK Land Simulator (JULES). The version of the model does not include a water table or groundwater flow. This parameter is valid on land grid-cells only.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr"
+    },
+    {
+        "Variable": "sund",
+        "Long name (Units)": "Monthly Mean Duration of Sunshine (s)",
+        "Description": "This parameter is the length of time, in a day, that the direct solar irradiance exceeds a threshold value of 120 W m2. It indicates the level of cloudiness and sunniness of a location.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "ta* (ta10, ta100, ta1000, ta150, ta20, ta200, ta250, ta30, ta300, ta400, ta50, ta500, ta600, ta70, ta700, ta750, ta800, ta850, ta900, ta925, ta950, ta975)",
+        "Long name (Units)": "Air Temperature (K)",
+        "Description": "This parameter refers to the temperature in the atmosphere. It has units of kelvin (K) and can be converted to degrees Celsius by subtracting 273.15. This parameter is available on multiple pressure levels through the atmosphere.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "tas* (tas, tasmax, tasmean, tasmin)",
+        "Long name (Units)": "Near-Surface Air Temperature (K)",
+        "Description": "This parameter refers to the temperature of air at 1.5m (screen-level) above the surface of land, sea or inland waters. 1.5m temperature is calculated by interpolating from the surface to 1.5m. This parameter has units of kelvin (K) and can be converted to degrees Celsius by subtracting 273.15. This parameter is available with different time profiles, instantaneous in time or averaged, minimum or maximum across regular time intervals.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "tauu",
+        "Long name (Units)": "Surface Downward Eastward Wind Stress (Pa)",
+        "Description": "This parameter is the force, per unit area, exerted by the wind the Earth's surface in a downward and eastward direction. Positive (negative) values indicate stress on the surface of the Earth in an eastward (westward) direction. The parameter can combine with the northward component (tauv) to estimate the overall wind stress.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "tauv",
+        "Long name (Units)": "Surface Downward Northward Wind Stress (Pa)",
+        "Description": "This parameter is the force, per unit area, exerted by the wind the Earth's surface in a downward and northward direction. Positive (negative) values indicate stress on the surface of the Earth in a northward (southward) direction. The parameter can combine with the eastward component (tauu) to estimate the overall wind stress.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "throughfall",
+        "Long name (Units)": "Canopy Throughfall Rate (kg m-2 s-1)",
+        "Description": "The rate per unit area that water falls through the vegetative canopy. Units are kg/m2/s.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr"
+    },
+    {
+        "Variable": "ts* (ts, tsmean)",
+        "Long name (Units)": "Surface Temperature (K)",
+        "Description": "This parameter is the temperature of the land or sea/sea-ice surface of the Earth. Over land, this is the surface skin temperature. On ice-free sea areas, it is the temperature of sea surface. On sea areas with ice, it is a ice fraction weighted sum of temperature of top ice layer and freezing point of sea water. It has units of kelvin (K) and can be converted to degrees Celsius by subtracting 273.15. This parameter is available as instantaneous and time-averaged quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "tsl",
+        "Long name (Units)": "Temperature of Soil (K)",
+        "Description": "This parameter is the temperature of the soil at 4 soil layers. The model has a four-layer representation of soil column. The depth of first (topmost) soil layer is 0 to 10 cm where the surface is at 0 cm. The second layer is 10 to 35 cm, with a thickness of 20 cm. The third layer is 35 cm to 1 metre, with a thickness of 65 cm. The last (deepest) layer is 1 metre to 3 metres, with a thickness of 2 metre. It has units of kelvin (K) and can be converted to degrees Celsius by subtracting 273.15.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "twiso* (twiso, twisomax)",
+        "Long name (Units)": "Isobaric wet-bulb temperature (K)",
+        "Description": "Isobaric wet-bulb temperature (also known as thermodynamic wet-bulb temperature) is the temperature an air parcel would have if cooled to saturation at constant pressure by the evaporation of water into it, with all latent heat supplied by the parcel (American Meteorological Society, 2025). It closely approximates the temperature measured by a wet-bulb thermometer and is always greater than the pseudo wet-bulb temperature, with larger differences at higher temperatures and lower relative humidities (Warren, 2025). This parameter is also available as daily and monthly maxima.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "twpse* (twpse, twpsemax)",
+        "Long name (Units)": "Pseudo wet-bulb temperature (K)",
+        "Description": "Pseudo wet-bulb temperature (also known as adiabatic wet-bulb temperature) is the temperature an air parcel would have if lifted adiabatically to saturation and then brought pseudoadiabatically back to its original pressure, maintaining saturation via the evaporation of water into it, with all latent heat supplied by the parcel (American Meteorological Society, 2025). It is the wet-bulb temperature read off a thermodynamic diagram and is always less than the isobaric wet-bulb temperature, with larger differences at higher temperatures and lower relative humidities (Warren, 2025). This parameter is also available as daily and monthly maxima.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "ua* (ua10, ua100, ua1000, ua150, ua20, ua200, ua250, ua30, ua300, ua400, ua50, ua500, ua600, ua70, ua700, ua750, ua800, ua850, ua900, ua925, ua950, ua975)",
+        "Long name (Units)": "Eastward Wind (m s-1)",
+        "Description": "This parameter is the northward component of the wind, at a pressure level in the atmosphere, as given in the variable name. When positive, it is the horizontal speed of air moving towards the east, and when negative, it is towards the west. It can be combined with the northward component of wind (va<NNN>) to give the speed and direction of the horizontal wind. This parameter is available on multiple pressure levels through the atmosphere.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "ua*m (ua100m, ua1500m, ua150m, ua200m, ua250m, ua50m)",
+        "Long name (Units)": "Eastward Wind (m s-1)",
+        "Description": "This parameter is the eastward component of the wind, at a height of some metres above the surface, as given in the variable name. When positive, it is the horizontal speed of air moving towards the east, and when negative, it is towards the west. It can be combined with the northward component of wind (va<NNN>m) to give the speed and direction of the horizontal wind. This parameter is available at multiple geometric heights above the surface of the Earth.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "uas* (uas, uasmax, uasmean)",
+        "Long name (Units)": "Eastward Near-Surface Wind (m s-1)",
+        "Description": "This parameter is the eastward component of the wind at 10 metre above the surface of the Earth. When positive, it is the horizontal speed of air moving towards the east, and when negative, it is towards the west. It can be combined with the northward component of wind (vas<CCCC>) to give the speed and direction of the horizontal wind. The parameter is available as instantaneous, time-averaged and time-maximum quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "va* (va10, va100, va1000, va150, va20, va200, va250, va30, va300, va400, va50, va500, va600, va70, va700, va750, va800, va850, va900, va925, va950, va975)",
+        "Long name (Units)": "Northward Wind (m s-1)",
+        "Description": "This parameter is the northward component of the wind, at a pressure level in the atmosphere, as given in the variable name. When positive, it is the horizontal speed of air moving towards the north, and when negative, it is towards the south. It can be combined with the eastward component of wind (ua<NNN>) to give the speed and direction of the horizontal wind. This parameter is available on multiple pressure levels through the atmosphere.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "va*m (va100m, va1500m, va150m, va200m, va250m, va50m)",
+        "Long name (Units)": "Northward Wind (m s-1)",
+        "Description": "This parameter is the northward component of the wind, at a height of some metres above the surface, as given in the variable name. When positive, it is the horizontal speed of air moving towards the north, and when negative, it is towards the south. It can be combined with the eastward component of wind (ua<NNN>m) to give the speed and direction of the horizontal wind. This parameter is available at multiple geometric heights above the surface of the Earth.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "vas* (vas, vasmax, vasmean)",
+        "Long name (Units)": "Northward Near-Surface Wind (m s-1)",
+        "Description": "This parameter is the northward component of the wind at 10 metre above the surface of the Earth. When positive, it is the horizontal speed of air moving towards the north, and when negative, it is towards the south. It can be combined with the eastward component of wind (uas<CCCC>) to give the speed and direction of the horizontal wind. The parameter is available as instantaneous, time-averaged and time-maximum quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "visibility",
+        "Long name (Units)": "Visibility at 1.5m (m)",
+        "Description": "This parameter is the maximum distance at which objects can be clearly seen, at 1.5 metre above the surface. The visibility can be influenced by fog, rain, snow and other weather phenomena.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr"
+    },
+    {
+        "Variable": "wa* (wa10, wa100, wa150, wa1000, wa150, wa20, wa200, wa250, wa30, wa300, wa400, wa50, wa500, wa600, wa70, wa700, wa750, wa800, wa850, wa900, wa925, wa950, wa975)",
+        "Long name (Units)": "Upward Air Velocity (m s-1)",
+        "Description": "This parameter is the speed of air motion in the upward or downward direction. It is expressed with a geometric vertical coordinate system and has units of metres per second, and is different from wap<NNN> that is expressed in a pressure-based vertical coordinate system. Positive values correspond upward motion and negative values indicate upward motion.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "wap* (wap10, wap100, wap150, wap1000, wap150, wap20, wap200, wap250, wap30, wap300, wap400, wap50, wap500, wap600, wap70, wap700, wap750, wap800, wap850, wap900, wap925, wap950, wap975)",
+        "Long name (Units)": "Upward air velocity in pressure/second (Pa s-1)",
+        "Description": "This parameter is the speed of air motion in the upward or downward direction. It is expressed with a pressure-based vertical coordinate system and has units of pascals per second, and is different from wa<NNN> that is expressed in a geometric vertical coordinate system. Since atmospheric pressure decreases with height, positive values corresponds downward motion and negative values indicate upward motion.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon"
+    },
+    {
+        "Variable": "wsgs* (wsgs, wsgsmax)",
+        "Long name (Units)": "Near-Surface Wind Speed of Gust (m s-1)",
+        "Description": "This parameter is the maximum of the wind, at 10 metre above surface, averaged over 3 second intervals. The parameter is also available as time-maximum quantities.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/20min, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "z0",
+        "Long name (Units)": "Surface Roughness Length (m)",
+        "Description": "This parameter quantifies the roughness of the Earth's surface due to various roughness elements such as vegetation and terrain features, which affects the flow of air over it. It represents the height above the ground at which the wind speed theoretically becomes zero due to the surface's roughness element. The parameter can be useful for predicting how wind speed changes with height.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "zg* (zg10, zg100, zg150, zg1000, zg150, zg20, zg200, zg250, zg30, zg300, zg400, zg50, zg500, zg600, zg70, zg700, zg750, zg800, zg850, zg900, zg925, zg950, zg975)",
+        "Long name (Units)": "Geopotential Height (m)",
+        "Description": "This parameter is the height of a specific pressure level above mean sea level. It is commonly used for analysis of weather patterns. Synoptic charts of geopotential height plotted at constant pressure levels can be used to identify weather systems such as troughs, ridges, cyclones, and anticyclones. The parameter can be converted to geopotential, which is the gravitational potential energy of a unit mass relative to mean sea level, multiplying with the Earth's gravitational acceleration g of 9.80665 m s-2.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/3hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/3hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/3hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "BWD03* (BWD03, BWD03dir)",
+        "Long name (Units)": "0 to 3 km AGL Bulk Wind Difference (m s-1)",
+        "Description": "Bulk wind difference (BWD) is defined as the vector difference between the winds at the top and bottom of a layer. It provides a measure of vertical wind shear, a key ingredient for organised convective storms such as squall lines and supercells. The magnitude of the 0-3 km BWD (BWD03) is a component of the fixed-layer SHERB (severe hazards in environments of reduced buoyancy) parameter, a diagnostic developed in the US for forecasting severe weather in high-shear, low-CAPE environments (Sherburn and Parker 2014). The direction of the 0-3 km BWD (BWD03dir) can be used in combination with its magnitude to compute the eastward and northward components of the vector. These can in turn be used in combination with the components of the 0-1 km BWD to compute the 1-3 km BWD or in combination with the components of the 0-6 km BWD to compute the 3-6 km BWD.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "BWD06* (BWD06, BWD06dir)",
+        "Long name (Units)": "0 to 6 km AGL Bulk Wind Difference (m s-1)",
+        "Description": "Bulk wind difference (BWD) is defined as the vector difference between the winds at the top and bottom of a layer. It provides a measure of vertical wind shear, a key ingredient for organised convective storms such as squall lines and supercells. The magnitude of the 0-6 km BWD (BWD06) has been found to discriminate between supercells and ordinary thunderstorms (Rasmussen and Blanchard 1998; Thompson et al. 2003) and is thus a useful diagnostic for severe weather, such as large hail and tornadoes (e.g., Rasmussen 2003; Thompson et al. 2012; Taszarek et all. 2020). BWD06 is a component of the original fixed-layer supercell composite parameter (SCP) and significant tornado parameter (STP), diagnostics developed in the US for forecasting supercell thunderstorms and tornadoes, respectively (Thompson et al. 2003). It is also a component of the significant hail parameter (SHIP) and the derecho composite parameter (DCP), diagnostics developed in the US for forecasting large hail and cold pool-driven severe convective wind gusts, respectively (Storm Prediction Center 2024a,c). BWD06 can additionally be combined with mixed-layer or most-unstable CAPE to calculate WMAXSHEAR, a simple composite parameter that shows skill in discriminating between and severe and non-severe thunderstorms (e.g., Taszarek et al. 2020). The direction of the 0-6 km BWD (BWD06dir) can be used in combination with its magnitude to compute the eastward and northward components of the vector. These can in turn be used in combination with the components of the 0-3 km BWD to compute the 3-6 km BWD or in combination with the components of the 0-9 km BWD to compute the 6-9 km BWD.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "CAPE* (CAPE, CAPEmax)",
+        "Long name (Units)": "Convective Available Potential Energy (J kg-1)",
+        "Description": "Convective available potential energy (CAPE) is defined as the vertical integral of positive buoyancy between the level of free convection (LFC) and the equilibrium level (EL). It provides a measure of conditional instability, a key ingredient for thunderstorm development. Higher values of CAPE have been shown to be more favourable for thunderstorms (e.g., Craven and Brooks 2004; Westermeyer et al. 2017) and severe weather, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). However, large CAPE does not guarantee that thunderstorms or severe weather will occur.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-R2/AUST-11/1hr, BARRA-R2/AUST-11/day, BARRA-R2/AUST-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "CIN* (CIN, CINmax)",
+        "Long name (Units)": "Convective Inhibition (J kg-1)",
+        "Description": "Convective inhibition (CIN) is defined as minus the vertical integral of negative buoyancy between the surface and the equilibrium level (EL). It provides a measure of the negative energy that must be overcome in order for conditional instability to be released. Lower values of CIN have been shown to be more favourable for thunderstorms (e.g., Westermeyer et al. 2017) and tornadoes (e.g., Thompson et al. 2012), as well as for the persistence of supercells following the nocturnal transition (Gropp and Davenport 2018). However, a moderate amount of CIN (tens to a few hundred J/kg) can delay convection initiation, allowing CAPE to build up to levels more favourable for severe thunderstorms. Note that CIN is undefined (NaN) where CAPE = 0.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-C2/AUST-04/day, BARRA-C2/AUST-04/mon, BARRA-R2/AUS-11/1hr, BARRA-R2/AUS-11/day, BARRA-R2/AUS-11/mon, BARRA-R2/AUST-11/1hr, BARRA-R2/AUST-11/day, BARRA-R2/AUST-11/mon, BARRA-RE2/AUS-22/1hr, BARRA-RE2/AUS-22/day, BARRA-RE2/AUS-22/mon"
+    },
+    {
+        "Variable": "DCAPE",
+        "Long name (Units)": "Downdraft Convective Available Potential Energy (J kg-1)",
+        "Description": "Downdraft convective available potential energy (DCAPE) is defined as minus the vertical integral of negative buoyancy between the downdraft parcel level (DPL) and the surface. It provides a measure of the energy available to a saturated descending parcel of air, which can be converted to horizontal momentum when the parcel reaches the surface. Higher values of DCAPE have been found to be more favourable for cold pool-driven severe convective windstorms, such as derechos (e.g., Evans and Doswell 2001; Kuchera and Parker 2006; Cohen et al. 2007). DCAPE is a component of the derecho composite parameter (DCP), a diagnostic developed in the US for forecasting cold pool-driven severe convective windstorms (Storm Prediction Center, 2024a). Note that DCAPE is undefined (NaN) where the downdraft parcel is undefined.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "EBWD* (EBWD, EBWDdir)",
+        "Long name (Units)": "Effective Bulk Wind Difference (m s-1)",
+        "Description": "Bulk wind difference (BWD) is defined as the vector difference between the winds at the top and bottom of a layer. It provides a measure of vertical wind shear, a key ingredient for organised convective storms such as squall lines and supercells. The magnitude of the effective BWD (EBWD) has been found to discriminate between supercells and ordinary thunderstorms (Thompson et al. 2007) and is thus a useful diagnostic for severe weather, such as large hail and tornadoes (e.g. Rasmussen 2003; Thompson et al. 2012; Taszarek et all. 2020). EBWD is a component of the effective-layer supercell composite parameter (SCP) and significant tornado parameter (STP), diagnostics developed in the US for forecasting supercell thunderstorms and tornadoes, respectively (Thompson et al. 2007). It is also a component of the Australian severe convective wind parameter (AUSWIND) developed by Brown and Dowdy (2021a) and is used as a predictor in the tornado and severe wind classifiers for the ProbSevere nowcasting system (Cintineo et al. 2020) and in the Additive Regression Convective Hazard Models (AR-CHaMo) for large and very large hail (Battaglioli et al. 2023). EBWD can additionally be combined with mixed-layer or most-unstable CAPE to calculate an effective-layer version of WMAXSHEAR, a simple composite parameter that shows skill in discriminating between and severe and non-severe thunderstorms (e.g., Taszarek et al. 2020). The direction of the effective BWD (EBWDdir) can be used in combination with its magnitude to compute the eastward and northward components of the vector. Note that EBWD and EBWDdir are undefined (NaN) where the effective inflow layer (EIL) is undefined.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "EIL* (EILbase, EILdepth)",
+        "Long name (Units)": "Effective Inflow Layer Base Height AGL (m)",
+        "Description": "The effective inflow layer (EIL) describes a layer of air that has sufficiently high convective available potential energy (CAPE) and sufficiently low convective inhibition (CIN) to support thunderstorm development and maintenance (Thompson et al. 2007). Idealised numerical simulations suggest that the EIL reasonably encapsulates the true inflow layer for most storm types, with better performance for supercell storms (Nowortarski et al. 2020). The EIL is used in the calculation of effective bulk wind difference (EBWD) and effective storm-relative helicity (ESRH). It can also be used to define effective CAPE and CIN. If the base of the EIL (EILbase) is above the boundary-layer top, this suggests that the environment is more favourable for elevated thunderstorms (particularly if the surface-based or mixed-layer CAPE are small). The depth of the EIL (EILdepth) can be used in combination with EILbase to calculate the height of the EIL top. Note that EILbase and EILdepth are undefined (NaN) where the EIL is undefined.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "ESRH* (ESRHl, ESRHr)",
+        "Long name (Units)": "Effective Storm-Relative Helicity for Bunkers Left Mover (m2 s-2)",
+        "Description": "Storm-relative helicity (SRH) is defined as the vertical integral of the dot product of the storm-relative wind and streamwise vorticity vectors over a given layer. It provides a measure of the potential for updraft rotation and is thus a useful diagnostic for supercell thunderstorms and their associated hazards, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). The effective SRH (ESRH) is a component of the effective-layer supercell composite parameter (SCP) and effective-layer significant tornado parameter (STP), diagnostics developed in the US for forecasting supercell thunderstorms and tornadoes, respectively (Thompson et al. 2007). Note that ESRHl and ESRHr are undefined (NaN) where the EIL is undefined.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "FZL",
+        "Long name (Units)": "Freezing Level Height AGL (m)",
+        "Description": "The freezing level (FZL) is defined as the height above ground level (AGL) at which the environmental temperature first drops below 0 degC. A higher FZL is indicative of a warmer environment, which may be more favourable for thunderstorms but less favourable for hail (particularly small hail) due to enhanced melting. FZL is a component of the improved instability-shear hail proxy for Australia developed by Raupach et al. (2023). Note that FZL is undefined (NaN) where the temperature at the lowest model level is below 0 degC.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "LR03",
+        "Long name (Units)": "0 to 3 km AGL Lapse Rate (K m-1)",
+        "Description": "The 0-3 km lapse rate (LR03) is defined as the difference in temperature between the surface and 3 km above ground level (AGL) divided by the layer depth. Large values of LR03 may be favourable for severe convective winds as they will promote a more rapid decrease in buoyancy for descending saturated parcels. LR03 is a component of the enhanced stretching potential (ESP), a diagnostic developed in the US for forecasting tornadoes (Storm Prediction Center, 2024b). It can also be combined with the 0-1 km lapse rate (LR01) to compute the 1-3 km lapse rate, which is a component of the Australian severe convective wind parameter (AUSWIND) developed by Brown and Dowdy (2021a).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "LR36",
+        "Long name (Units)": "3 to 6 km AGL Lapse Rate (K m-1)",
+        "Description": "The 3-6 km lapse rate (LR36) is defined as the difference in temperature between 3 and 6 km above ground level (AGL) divided by the layer depth. Large values of LR36 may be favourable for thunderstorms and severe weather as they will promote larger CAPE and stronger convective updrafts. They can also indicate the presence of an elevated mixed layer (EML) (e.g., Carlson et al. 1983). LR36 represents a height-based alternative to the more widely used 700-500 hPa lapse rate.",
+        "Available For (model/domain_id/freq)": "BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "LR75",
+        "Long name (Units)": "700 to 500 hPa Lapse Rate (K m-1)",
+        "Description": "The 700-500 hPa lapse rate (LR75) is defined as the difference in temperature between 700 and 500 hPa divided by the layer depth. Large values of LR75 may be favourable for thunderstorms and severe weather as they will promote larger CAPE and stronger convective updrafts. They can also indicate the presence of an elevated mixed layer (EML) (e.g., Carlson et al. 1983). LR75 is a component of the significant hail parameter (SHIP), a diagnostic developed in the US for forecasting large hail (Storm Prediction Center, 2024c). It is also a component of the SHERB (severe hazards in environments of reduced buoyancy) parameter, a diagnostic developed in the US for forecasting severe weather in high-shear, low-CAPE environments (Sherburn and Parker 2014).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "MLCAPE",
+        "Long name (Units)": "Convective Available Potential Energy for Mixed-Layer Parcel (J kg-1)",
+        "Description": "Convective available potential energy (CAPE) is defined as the vertical integral of positive buoyancy between the level of free convection (LFC) and the equilibrium level (EL). It provides a measure of conditional instability, a key ingredient for thunderstorm development. Higher values of CAPE have been shown to be more favourable for thunderstorms (e.g., Craven and Brooks 2004; Westermeyer et al. 2017) and severe weather, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). However, large CAPE does not guarantee that thunderstorms or severe weather will occur. MLCAPE is a component of the significant tornado parameter (STP), a diagnostic developed in the US for forecasting tornadoes (Thompson et al. 2003, 2007; Coffer et al. 2019). It is also used as a predictor in the tornado and severe wind classifiers for the ProbSevere nowcasting system (Cintineo et al. 2020).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "MLCIN",
+        "Long name (Units)": "Convective Inhibition for Mixed-Layer Parcel (J kg-1)",
+        "Description": "Convective inhibition (CIN) is defined as minus the vertical integral of negative buoyancy between the surface and the equilibrium level (EL). It provides a measure of the negative energy that must be overcome in order for conditional instability to be released. Lower values of CIN have been shown to be more favourable for thunderstorms (e.g., Westermeyer et al. 2017) and tornadoes (e.g., Thompson et al. 2012), as well as for the persistence of supercells following the nocturnal transition (Gropp and Davenport 2018). However, a moderate amount of CIN (tens to a few hundred J/kg) can delay convection initiation, allowing CAPE to build up to levels more favourable for severe thunderstorms. MLCIN is a component of the significant tornado parameter (STP), a diagnostic developed in the US for forecasting tornadoes (Thompson et al. 2003, 2007; Coffer et al. 2019). It is also used as a predictor in the tornado classifier for the ProbSevere nowcasting system (Cintineo et al. 2020). Note that MLCIN is undefined (NaN) where MLCAPE = 0.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "MLLCL",
+        "Long name (Units)": "Lifting Condensation Level Height AGL for Mixed-Layer Parcel (m)",
+        "Description": "The lifting condensation level (LCL) is defined as the level at which an adiabatically lifted parcel becomes saturated. It can be used as a proxy for convective cloud base. A higher LCL is generally less favourable for tornadoes but more favourable for downdraft-driven severe windstorms such as downbursts and derechos. MLLCL is a component of the significant tornado parameter (STP), a diagnostic developed in the US for forecasting tornadoes (Thompson et al. 2003, 2007; Coffer et al. 2019). It is also used as a predictor in the Additive Regression Convective Hazard Model (AR-CHaMo) for very large hail (Battaglioli et al. 2023).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "MUCAPE",
+        "Long name (Units)": "Convective Available Potential Energy for Most-Unstable Parcel (J kg-1)",
+        "Description": "Convective available potential energy (CAPE) is defined as the vertical integral of positive buoyancy between the level of free convection (LFC) and the equilibrium level (EL). It provides a measure of conditional instability, a key ingredient for thunderstorm development. Higher values of CAPE have been shown to be more favourable for thunderstorms (e.g., Craven and Brooks 2004; Westermeyer et al. 2017) and severe weather, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). However, large CAPE does not guarantee that thunderstorms or severe weather will occur. MUCAPE is a component of the supercell composite parameter (SCP), a diagnostic developed in the US for forecasting supercell thunderstorms (Thompson et al. 2003, 2007; Gropp and Davenport 2018). It is also used as a predictor in the severe wind classifier for the ProbSevere nowcasting system (Cintineo et al. 2020).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MUCIN",
+        "Long name (Units)": "Convective Inhibition for Most-Unstable Parcel (J kg-1)",
+        "Description": "Convective inhibition (CIN) is defined as minus the vertical integral of negative buoyancy between the surface and the equilibrium level (EL). It provides a measure of the negative energy that must be overcome in order for conditional instability to be released. Lower values of CIN have been shown to be more favourable for thunderstorms (e.g., Westermeyer et al. 2017) and tornadoes (e.g., Thompson et al. 2012), as well as for the persistence of supercells following the nocturnal transition (Gropp and Davenport 2018). However, a moderate amount of CIN (tens to a few hundred J/kg) can delay convection initiation, allowing CAPE to build up to levels more favourable for severe thunderstorms. MUCIN is a component of the CIN-scaled supercell composite parameter (SCP), a diagnostic developed in the US for forecasting supercell thunderstorms (Gropp and Davenport 2018). Note that MUCIN is undefined (NaN) where MUCAPE = 0.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MUEL",
+        "Long name (Units)": "Equilibrium Level Height AGL for Most-Unstable Parcel (m)",
+        "Description": "The equilibrium level (EL) is defined as the level at which a saturated and positively buoyant parcel becomes negatively buoyant. It represents the top of the free convective layer (FCL). In profiles featuring multiple FCLs, the EL of the FCL with maximum CAPE is used. The EL can be used as a proxy for convective cloud top. All else being equal, a higher EL is associated with larger CAPE, suggesting conditions more favourable for thunderstorms and severe weather. MUEL is a component of the significant hail parameter (SHIP), a diagnostic developed in the US for forecasting large hail (Storm Prediction Center, 2024c). Note that MUEL is undefined (NaN) where MUCAPE = 0.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MULFC",
+        "Long name (Units)": "Level of Free Convection Height AGL for Most-Unstable Parcel (m)",
+        "Description": "The level of free convection (LFC) is defined as the level at which a saturated parcel becomes positively buoyant. It represents the base of the free convective layer (FCL). In profiles featuring multiple FCLs, the LFC of the first FCL is used. For parcels that are positively buoyant at the LCL, the LFC is set equal to the LCL. All else being equal, a higher LFC is associated with smaller CAPE and larger CIN, suggesting conditions less favourable for thunderstorms and severe weather. Note that MULFC is undefined (NaN) where MUCAPE = 0.",
+        "Available For (model/domain_id/freq)": "BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MULPL",
+        "Long name (Units)": "Lifted Parcel Level Height AGL for Most-Unstable Parcel (m)",
+        "Description": "The lifted parcel level (LPL) is the level from which a parcel ascent is initialised. The MULPL is defined as the level that maximises convective available potential energy (CAPE). If the MULPL is above the boundary-layer top, this suggests that the environment is more favourable for elevated thunderstorms (particularly if the most unstable CAPE is much larger than the surface-based CAPE).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "MULPLmixr",
+        "Long name (Units)": "Lifted Parcel Level Mixing Ratio of Most-Unstable Parcel (kg kg-1)",
+        "Description": "The lifted parcel level (LPL) is the level from which a parcel ascent is initialised. The MULPL is defined as the level that maximises convective available potential energy (CAPE). The MULPL parcel mixing ratio (MULPLmixr) can be used in combination with the MULPL pressure (MULPLpres) and parcel temperature (MULPLtemp) to calculate the pseudo-equivalent potential temperature (e.g., Bolton 1980) or wet-bulb potential temperature (e.g., Davies-Jones 2008) of the MU parcel, both of which are conserved during its ascent. MULPLmixr is a component of the significant hail parameter (SHIP), a diagnostic developed in the US for forecasting large hail (Storm Prediction Center, 2024c). It is also used as a predictor in the Additive Regression Convective Hazard Model (AR-CHaMo) for lightning (Battaglioli et al. 2023).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MULPLpres",
+        "Long name (Units)": "Lifted Parcel Level Pressure for Most-Unstable Parcel (Pa)",
+        "Description": "The lifted parcel level (LPL) is the level from which a parcel ascent is initialised. The MULPL is defined as the level that maximises convective available potential energy (CAPE). The MULPL pressure (MULPLpres) can be used in combination with the MULPL parcel temperature (MULPLtemp) and parcel mixing ratio (MULPLmixr) to calculate the pseudo-equivalent potential temperature (e.g., Bolton 1980) or wet-bulb potential temperature (e.g., Davies-Jones 2008) of the MU parcel, both of which are conserved during its ascent.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "MULPLtemp",
+        "Long name (Units)": "Lifted Parcel Level Temperature of Most-Unstable Parcel (K)",
+        "Description": "The lifted parcel level (LPL) is the level from which a parcel ascent is initialised. The MULPL is defined as the level that maximises convective available potential energy (CAPE). The MULPL parcel temperature (MULPLtemp) can be used in combination with the MULPL pressure (LPLpres) and parcel mixing ratio (MULPLmixr) to calculate the pseudo-equivalent potential temperature (e.g., Bolton 1980) or wet-bulb potential temperature (e.g., Davies-Jones 2008) of the MU parcel, both of which are conserved during its ascent.",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {
+        "Variable": "SRH01* (SRH01l, SRH01r)",
+        "Long name (Units)": "0 to 1 km AGL Storm-Relative Helicity for Bunkers Left Mover (m2 s-2)",
+        "Description": "Storm-relative helicity (SRH) is defined as the vertical integral of the dot product of the storm-relative wind and streamwise vorticity vectors over a given layer. It provides a measure of the potential for updraft rotation and is thus a useful diagnostic for supercell thunderstorms and their associated hazards, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). The 0-1 km SRH (SRH01) is a component of the original fixed-layer significant tornado parameter (STP), a diagnostic developed in the US for forecasting tornadoes (Thompson et al. 2003). It is also used as a predictor in the tornado classifier for the ProbSevere nowcasting system (Cintineo et al. 2020).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr"
+    },
+    {
+        "Variable": "SRH03* (SRH03l, SRH03r)",
+        "Long name (Units)": "0 to 3 km AGL Storm-Relative Helicity for Bunkers Left Mover (m2 s-2)",
+        "Description": "Storm-relative helicity (SRH) is defined as the vertical integral of the dot product of the storm-relative wind and streamwise vorticity vectors over a given layer. It provides a measure of the potential for updraft rotation and is thus a useful diagnostic for supercell thunderstorms and their associated hazards, including large hail and tornadoes (e.g., Rasmussen and Blanchard 1998; Thompson et al. 2012; Taszarek et al. 2020). The 0-3 km SRH (SRH03) is a component of the original fixed-layer supercell composite parameter (SCP), a diagnostic developed in the US for forecasting supercell thunderstorms (Thompson et al. 2003).",
+        "Available For (model/domain_id/freq)": "BARRA-C2/AUST-04/1hr, BARRA-R2/AUST-11/1hr, BARRA-RE2/AUST-22/3hr"
+    },
+    {}
+]

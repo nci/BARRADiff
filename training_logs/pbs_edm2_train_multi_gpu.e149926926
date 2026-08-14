@@ -1,0 +1,84 @@
+Loading python3/3.10.4
+  Loading requirement: intel-mkl/2021.4.0
+=>> PBS: job killed: walltime 172831 exceeded limit 172800
+rm: cannot remove '/local/spool/pbs/aux/149926926.gadi-pbs': Permission denied
+/local/spool/pbs/mom_priv/jobs/149926926.gadi-pbs.SC: line 59: 2507125 Terminated              ( cd $curr_dir; mpirun -np $num_nodes --hostfile $hostfile -bind-to none --map-by node -x LD_LIBRARY_PATH -x PATH -x NCCL_SOCKET_NTHREADS=4 -x NCCL_NSOCKS_PERTHREAD=4 -mca pml ob1 -mca btl ^openib torchrun --nnodes=$num_nodes --nproc_per_node=$local_world_size --rdzv_id=0 --rdzv_backend=c10d --rdzv_endpoint="$(head -n1 $hostfile):29601" train_edm2.py --outdir=$output_path --data=$data_path --preset=$network_arch --batch-gpu=$batch_size --grad-accumulation=$accum_steps --model-shards=$model_shards )
+W0923 14:36:39.597323 2507133 torch/distributed/elastic/agent/server/api.py:719] Received Signals.SIGTERM death signal, shutting down workers
+W0923 14:36:39.604414 2507133 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2507137 closing signal SIGTERM
+W0923 14:36:39.606631 2507133 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2507138 closing signal SIGTERM
+W0923 14:36:39.607371 2507133 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2507139 closing signal SIGTERM
+W0923 14:36:39.608012 2507133 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2507140 closing signal SIGTERM
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+W0923 14:36:42.613857 437591 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 437600 closing signal SIGTERM
+W0923 14:36:42.615791 437591 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 437601 closing signal SIGTERM
+W0923 14:36:42.616656 437591 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 437602 closing signal SIGTERM
+W0923 14:36:42.617636 437591 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 437603 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 117, in _call_store
+    return getattr(self._store, store_op)(*args, **kwargs)
+torch.distributed.DistNetworkError: Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 711, in run
+    result = self._invoke_run(role)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 906, in _invoke_run
+    num_nodes_waiting = rdzv_handler.num_nodes_waiting()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1263, in num_nodes_waiting
+    self._state_holder.sync()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 437, in sync
+    get_response = self._backend.get_state()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 75, in get_state
+    base64_state: bytes = self._call_store("get", self._key)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 119, in _call_store
+    raise RendezvousConnectionError(
+torch.distributed.elastic.rendezvous.api.RendezvousConnectionError: The connection to the C10d store has failed. See inner exception for details.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    result = agent.run()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 725, in run
+    self._shutdown()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/local_elastic_agent.py", line 372, in _shutdown
+    self._pcontext.close(death_sig)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 577, in close
+    self._close(death_sig=death_sig, timeout=timeout)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 912, in _close
+    handler.proc.wait(time_to_wait)
+  File "/apps/python3/3.10.4/lib/python3.10/subprocess.py", line 1204, in wait
+    return self._wait(timeout=timeout)
+  File "/apps/python3/3.10.4/lib/python3.10/subprocess.py", line 1932, in _wait
+    time.sleep(delay)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 437591 got signal: 15
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

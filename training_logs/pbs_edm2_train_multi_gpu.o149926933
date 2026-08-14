@@ -1,0 +1,412 @@
+Setting up training config...
+
+Training config:
+{
+  "dataset_kwargs": {
+    "class_name": "training.dataset.Barra2ShardedDataset",
+    "path": "/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2",
+    "use_labels": false
+  },
+  "encoder_kwargs": {
+    "class_name": "training.encoders.PassthruEncoder"
+  },
+  "total_nimg": 939524096,
+  "batch_size": 2048,
+  "network_kwargs": {
+    "class_name": "training.networks_edm2.Precond",
+    "model_channels": 512,
+    "dropout": 0.1,
+    "use_fp16": true
+  },
+  "loss_kwargs": {
+    "class_name": "training.training_loop.EDM2Loss",
+    "P_mean": -0.4,
+    "P_std": 1.0
+  },
+  "lr_kwargs": {
+    "func_name": "training.training_loop.learning_rate_schedule",
+    "ref_lr": 0.0065,
+    "ref_batches": 70000
+  },
+  "batch_gpu": 8,
+  "loss_scaling": 1.0,
+  "cudnn_benchmark": true,
+  "status_nimg": 131072,
+  "checkpoint_nimg": 8388608,
+  "seed": 0,
+  "grad_accumulation": 1,
+  "model_shards": 4
+}
+
+Output directory:        /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl
+Dataset path:            /scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2
+Class-conditional:       False
+Number of GPUs:          8
+Batch size:              2048
+Mixed-precision:         True
+
+[2025-09-23 17:37:52 training_loop.py 83 INFO]: Loading dataset...
+[2025-09-23 17:37:52 training_loop.py 83 INFO]: dataset info: (36, 5, 20000), {'va850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va850.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va850.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va850.0.zarr.zip'], 'psl': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/psl.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/psl.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/psl.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/psl.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/psl.300.zarr.zip'], 'zg850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg850.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg850.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg850.400.zarr.zip'], 'ta200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta200.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta200.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta200.300.zarr.zip'], 'vas': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/vas.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/vas.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/vas.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/vas.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/vas.200.zarr.zip'], 'pr': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/pr.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/pr.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/pr.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/pr.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/pr.200.zarr.zip'], 'zg700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg700.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg700.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg700.300.zarr.zip'], 'ua850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua850.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua850.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua850.400.zarr.zip'], 'va200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va200.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va200.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va200.100.zarr.zip'], 'wap200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap200.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap200.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap200.200.zarr.zip'], 'CAPE': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/CAPE.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/CAPE.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/CAPE.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/CAPE.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/CAPE.300.zarr.zip'], 'ta500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta500.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta500.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta500.200.zarr.zip'], 'ta700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta700.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta700.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta700.300.zarr.zip'], 'wap700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap700.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap700.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap700.200.zarr.zip'], 'hus700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus700.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus700.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus700.200.zarr.zip'], 'tas': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/tas.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/tas.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/tas.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/tas.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/tas.0.zarr.zip'], 'hus500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus500.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus500.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus500.300.zarr.zip'], 'prw': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prw.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prw.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prw.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prw.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prw.100.zarr.zip'], 'ua700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua700.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua700.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua700.300.zarr.zip'], 'ta850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta850.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta850.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ta850.400.zarr.zip'], 'hus200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus200.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus200.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus200.300.zarr.zip'], 'wap850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap850.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap850.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap850.100.zarr.zip'], 'hus850': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus850.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus850.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus850.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus850.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/hus850.100.zarr.zip'], 'ps': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ps.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ps.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ps.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ps.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ps.100.zarr.zip'], 'va700': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va700.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va700.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va700.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va700.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va700.0.zarr.zip'], 'wap500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap500.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap500.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/wap500.400.zarr.zip'], 'clt': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/clt.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/clt.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/clt.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/clt.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/clt.300.zarr.zip'], 'ua200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua200.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua200.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua200.200.zarr.zip'], 'zg200': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg200.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg200.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg200.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg200.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg200.200.zarr.zip'], 'zg500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg500.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg500.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/zg500.300.zarr.zip'], 'uas': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/uas.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/uas.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/uas.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/uas.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/uas.100.zarr.zip'], 'va500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va500.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va500.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/va500.300.zarr.zip'], 'prra': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prra.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prra.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prra.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prra.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/prra.0.zarr.zip'], 'rldscs': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rldscs.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rldscs.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rldscs.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rldscs.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rldscs.100.zarr.zip'], 'ua500': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua500.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua500.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua500.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua500.300.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/ua500.400.zarr.zip'], 'rlds': ['/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rlds.400.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rlds.100.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rlds.0.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rlds.200.zarr.zip', '/scratch/z00/jxg900/barra2_sharded_training_set_v3_improved2/data/rlds.300.zarr.zip']}
+[2025-09-23 17:37:53 training_loop.py 83 INFO]: {'class_name': 'training.networks_edm2.Precond', 'model_channels': 512, 'dropout': 0.1, 'use_fp16': True}
+[2025-09-23 17:37:53 training_loop.py 83 INFO]: {'img_resolution': 64, 'img_channels': 4, 'cond_img_channels': 4, 'label_dim': 0}
+[2025-09-23 17:37:53 training_loop.py 83 INFO]: Constructing network...
+[2025-09-23 17:38:23 training_loop.py 83 INFO]: DeviceMesh('cuda', [[0, 1, 2, 3], [4, 5, 6, 7]], mesh_dim_names=('replicate', 'shard'))
+[2025-09-23 17:38:30 training_loop.py 83 INFO]: (Replicate(), Shard(dim=0))
+[2025-09-23 17:38:30 checkpointer.py 61 INFO]: loading model checkpoint: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/721420288/model_state_dict.pt
+[2025-09-23 17:40:03 checkpointer.py 74 INFO]: loading EMA[1] checkpoint: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/721420288/ema_state_dict.pt.1
+[2025-09-23 17:40:47 checkpointer.py 74 INFO]: loading EMA[0] checkpoint: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/721420288/ema_state_dict.pt.0
+[2025-09-23 17:41:32 checkpointer.py 83 INFO]: loading optimizer states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/721420288/optim_state_dict.pt
+
+FSDPPrecond       Parameters  Buffers  Output shape       Datatype
+---               ---         ---      ---                ---     
+unet.emb_fourier  1024        -        [8, 512]           float32 
+unet.emb_noise    1048576     -        [8, 2048]          float32 
+unet.enc.64       17342979    -        [8, 512, 64, 64]   float32 
+unet.enc.32       69206020    -        [8, 1024, 32, 32]  float32 
+unet.enc.16       187695108   -        [8, 1536, 16, 16]  float32 
+unet.enc.8        338165764   -        [8, 2048, 8, 8]    float32 
+unet.dec.8        736100358   -        [8, 2048, 8, 8]    float32 
+unet.dec.16       403701765   -        [8, 1536, 16, 16]  float32 
+unet.dec.32       175636485   -        [8, 1024, 32, 32]  float32 
+unet.dec.64       58195973    -        [8, 512, 64, 64]   float32 
+unet.out_conv     18432       -        [8, 4, 64, 64]     float32 
+unet              1           -        [8, 4, 64, 64]     float32 
+<top-level>       384         -        [8, 4, 64, 64]     float32 
+---               ---         ---      ---                ---     
+Total             1987112869  0        -                  -       
+
+[2025-09-23 17:42:05 training_loop.py 83 INFO]: Training from 721420 kimg to 939524 kimg:
+[2025-09-23 17:43:10 training_loop.py 83 INFO]: 352257/458752 (721422336/939524096), lr=0.00290, loss=2151.65088
+[2025-09-23 17:52:43 training_loop.py 83 INFO]: 352321/458752 (721553408/939524096), lr=0.00290, loss=2603.37646
+[2025-09-23 18:02:20 training_loop.py 83 INFO]: 352385/458752 (721684480/939524096), lr=0.00290, loss=2348.97949
+[2025-09-23 18:11:56 training_loop.py 83 INFO]: 352449/458752 (721815552/939524096), lr=0.00290, loss=1678.77319
+[2025-09-23 18:21:32 training_loop.py 83 INFO]: 352513/458752 (721946624/939524096), lr=0.00290, loss=1798.89587
+[2025-09-23 18:31:08 training_loop.py 83 INFO]: 352577/458752 (722077696/939524096), lr=0.00290, loss=2367.52319
+[2025-09-23 18:40:46 training_loop.py 83 INFO]: 352641/458752 (722208768/939524096), lr=0.00290, loss=2377.33691
+[2025-09-23 18:50:23 training_loop.py 83 INFO]: 352705/458752 (722339840/939524096), lr=0.00290, loss=1905.81226
+[2025-09-23 18:59:59 training_loop.py 83 INFO]: 352769/458752 (722470912/939524096), lr=0.00290, loss=2097.21509
+[2025-09-23 19:09:35 training_loop.py 83 INFO]: 352833/458752 (722601984/939524096), lr=0.00290, loss=2342.06445
+[2025-09-23 19:19:11 training_loop.py 83 INFO]: 352897/458752 (722733056/939524096), lr=0.00289, loss=1814.27759
+[2025-09-23 19:28:47 training_loop.py 83 INFO]: 352961/458752 (722864128/939524096), lr=0.00289, loss=1875.40564
+[2025-09-23 19:38:23 training_loop.py 83 INFO]: 353025/458752 (722995200/939524096), lr=0.00289, loss=1888.37329
+[2025-09-23 19:47:59 training_loop.py 83 INFO]: 353089/458752 (723126272/939524096), lr=0.00289, loss=1771.84509
+[2025-09-23 19:57:34 training_loop.py 83 INFO]: 353153/458752 (723257344/939524096), lr=0.00289, loss=1872.56665
+[2025-09-23 20:07:10 training_loop.py 83 INFO]: 353217/458752 (723388416/939524096), lr=0.00289, loss=1867.42432
+[2025-09-23 20:16:47 training_loop.py 83 INFO]: 353281/458752 (723519488/939524096), lr=0.00289, loss=1879.56543
+[2025-09-23 20:26:23 training_loop.py 83 INFO]: 353345/458752 (723650560/939524096), lr=0.00289, loss=2752.17285
+[2025-09-23 20:36:00 training_loop.py 83 INFO]: 353409/458752 (723781632/939524096), lr=0.00289, loss=1723.79248
+[2025-09-23 20:45:36 training_loop.py 83 INFO]: 353473/458752 (723912704/939524096), lr=0.00289, loss=2140.82910
+[2025-09-23 20:55:12 training_loop.py 83 INFO]: 353537/458752 (724043776/939524096), lr=0.00289, loss=2267.42773
+[2025-09-23 21:04:48 training_loop.py 83 INFO]: 353601/458752 (724174848/939524096), lr=0.00289, loss=1650.32983
+[2025-09-23 21:14:24 training_loop.py 83 INFO]: 353665/458752 (724305920/939524096), lr=0.00289, loss=2304.12842
+[2025-09-23 21:24:00 training_loop.py 83 INFO]: 353729/458752 (724436992/939524096), lr=0.00289, loss=2417.40039
+[2025-09-23 21:33:37 training_loop.py 83 INFO]: 353793/458752 (724568064/939524096), lr=0.00289, loss=1447.54114
+[2025-09-23 21:43:13 training_loop.py 83 INFO]: 353857/458752 (724699136/939524096), lr=0.00289, loss=1890.23706
+[2025-09-23 21:52:49 training_loop.py 83 INFO]: 353921/458752 (724830208/939524096), lr=0.00289, loss=1465.12695
+[2025-09-23 22:02:26 training_loop.py 83 INFO]: 353985/458752 (724961280/939524096), lr=0.00289, loss=2552.67236
+[2025-09-23 22:12:02 training_loop.py 83 INFO]: 354049/458752 (725092352/939524096), lr=0.00289, loss=2844.80444
+[2025-09-23 22:21:38 training_loop.py 83 INFO]: 354113/458752 (725223424/939524096), lr=0.00289, loss=2110.17212
+[2025-09-23 22:31:15 training_loop.py 83 INFO]: 354177/458752 (725354496/939524096), lr=0.00289, loss=2244.32031
+[2025-09-23 22:40:51 training_loop.py 83 INFO]: 354241/458752 (725485568/939524096), lr=0.00289, loss=2334.33496
+[2025-09-23 22:50:27 training_loop.py 83 INFO]: 354305/458752 (725616640/939524096), lr=0.00289, loss=1507.90576
+[2025-09-23 23:00:03 training_loop.py 83 INFO]: 354369/458752 (725747712/939524096), lr=0.00289, loss=2104.65576
+[2025-09-23 23:09:40 training_loop.py 83 INFO]: 354433/458752 (725878784/939524096), lr=0.00289, loss=2456.20898
+[2025-09-23 23:19:16 training_loop.py 83 INFO]: 354497/458752 (726009856/939524096), lr=0.00289, loss=2770.31470
+[2025-09-23 23:28:53 training_loop.py 83 INFO]: 354561/458752 (726140928/939524096), lr=0.00289, loss=2545.32153
+[2025-09-23 23:38:29 training_loop.py 83 INFO]: 354625/458752 (726272000/939524096), lr=0.00289, loss=2767.52319
+[2025-09-23 23:48:05 training_loop.py 83 INFO]: 354689/458752 (726403072/939524096), lr=0.00289, loss=1577.02307
+[2025-09-23 23:57:42 training_loop.py 83 INFO]: 354753/458752 (726534144/939524096), lr=0.00289, loss=2010.37524
+[2025-09-24 00:07:18 training_loop.py 83 INFO]: 354817/458752 (726665216/939524096), lr=0.00289, loss=2573.55469
+[2025-09-24 00:16:55 training_loop.py 83 INFO]: 354881/458752 (726796288/939524096), lr=0.00289, loss=1609.46802
+[2025-09-24 00:26:31 training_loop.py 83 INFO]: 354945/458752 (726927360/939524096), lr=0.00289, loss=2350.09180
+[2025-09-24 00:36:07 training_loop.py 83 INFO]: 355009/458752 (727058432/939524096), lr=0.00289, loss=2201.64771
+[2025-09-24 00:45:43 training_loop.py 83 INFO]: 355073/458752 (727189504/939524096), lr=0.00289, loss=2635.41162
+[2025-09-24 00:55:19 training_loop.py 83 INFO]: 355137/458752 (727320576/939524096), lr=0.00289, loss=2472.02100
+[2025-09-24 01:04:55 training_loop.py 83 INFO]: 355201/458752 (727451648/939524096), lr=0.00289, loss=2684.96509
+[2025-09-24 01:14:32 training_loop.py 83 INFO]: 355265/458752 (727582720/939524096), lr=0.00289, loss=2506.60498
+[2025-09-24 01:24:08 training_loop.py 83 INFO]: 355329/458752 (727713792/939524096), lr=0.00289, loss=1821.66150
+[2025-09-24 01:33:45 training_loop.py 83 INFO]: 355393/458752 (727844864/939524096), lr=0.00288, loss=1969.97217
+[2025-09-24 01:43:21 training_loop.py 83 INFO]: 355457/458752 (727975936/939524096), lr=0.00288, loss=2200.42651
+[2025-09-24 01:52:58 training_loop.py 83 INFO]: 355521/458752 (728107008/939524096), lr=0.00288, loss=2457.54224
+[2025-09-24 02:02:35 training_loop.py 83 INFO]: 355585/458752 (728238080/939524096), lr=0.00288, loss=2389.65625
+[2025-09-24 02:12:11 training_loop.py 83 INFO]: 355649/458752 (728369152/939524096), lr=0.00288, loss=2310.27124
+[2025-09-24 02:21:47 training_loop.py 83 INFO]: 355713/458752 (728500224/939524096), lr=0.00288, loss=2422.43848
+[2025-09-24 02:31:24 training_loop.py 83 INFO]: 355777/458752 (728631296/939524096), lr=0.00288, loss=2246.63525
+[2025-09-24 02:40:59 training_loop.py 83 INFO]: 355841/458752 (728762368/939524096), lr=0.00288, loss=2392.96460
+[2025-09-24 02:50:36 training_loop.py 83 INFO]: 355905/458752 (728893440/939524096), lr=0.00288, loss=2245.14087
+[2025-09-24 03:00:12 training_loop.py 83 INFO]: 355969/458752 (729024512/939524096), lr=0.00288, loss=2535.59863
+[2025-09-24 03:09:48 training_loop.py 83 INFO]: 356033/458752 (729155584/939524096), lr=0.00288, loss=1931.62061
+[2025-09-24 03:19:23 training_loop.py 83 INFO]: 356097/458752 (729286656/939524096), lr=0.00288, loss=1205.82910
+[2025-09-24 03:29:00 training_loop.py 83 INFO]: 356161/458752 (729417728/939524096), lr=0.00288, loss=1639.56970
+[2025-09-24 03:38:37 training_loop.py 83 INFO]: 356225/458752 (729548800/939524096), lr=0.00288, loss=2014.37000
+[2025-09-24 03:48:14 training_loop.py 83 INFO]: 356289/458752 (729679872/939524096), lr=0.00288, loss=2185.73145
+[2025-09-24 03:57:40 checkpointer.py 240 INFO]: saving training states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/729808896_tmp/training_states.pt
+[2025-09-24 03:57:51 checkpointer.py 246 INFO]: saving model states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/729808896_tmp/model_state_dict.pt
+[2025-09-24 03:58:03 checkpointer.py 254 INFO]: saving EMA[0] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/729808896_tmp/ema_state_dict.pt.0
+[2025-09-24 03:58:15 checkpointer.py 254 INFO]: saving EMA[1] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/729808896_tmp/ema_state_dict.pt.1
+[2025-09-24 03:58:22 checkpointer.py 262 INFO]: saving optimizer states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/729808896_tmp/optim_state_dict.pt
+[2025-09-24 03:58:27 training_loop.py 83 INFO]: 356353/458752 (729810944/939524096), lr=0.00288, loss=2375.69727
+[2025-09-24 04:08:04 training_loop.py 83 INFO]: 356417/458752 (729942016/939524096), lr=0.00288, loss=2399.14111
+[2025-09-24 04:17:41 training_loop.py 83 INFO]: 356481/458752 (730073088/939524096), lr=0.00288, loss=1833.09961
+[2025-09-24 04:27:17 training_loop.py 83 INFO]: 356545/458752 (730204160/939524096), lr=0.00288, loss=1994.24915
+[2025-09-24 04:36:53 training_loop.py 83 INFO]: 356609/458752 (730335232/939524096), lr=0.00288, loss=2631.37476
+[2025-09-24 04:46:29 training_loop.py 83 INFO]: 356673/458752 (730466304/939524096), lr=0.00288, loss=2153.49365
+[2025-09-24 04:56:06 training_loop.py 83 INFO]: 356737/458752 (730597376/939524096), lr=0.00288, loss=2468.18359
+[2025-09-24 05:05:42 training_loop.py 83 INFO]: 356801/458752 (730728448/939524096), lr=0.00288, loss=2078.06787
+[2025-09-24 05:15:18 training_loop.py 83 INFO]: 356865/458752 (730859520/939524096), lr=0.00288, loss=2615.25513
+[2025-09-24 05:24:54 training_loop.py 83 INFO]: 356929/458752 (730990592/939524096), lr=0.00288, loss=1984.68604
+[2025-09-24 05:34:30 training_loop.py 83 INFO]: 356993/458752 (731121664/939524096), lr=0.00288, loss=1910.59424
+[2025-09-24 05:44:05 training_loop.py 83 INFO]: 357057/458752 (731252736/939524096), lr=0.00288, loss=1852.13989
+[2025-09-24 05:53:42 training_loop.py 83 INFO]: 357121/458752 (731383808/939524096), lr=0.00288, loss=2302.27637
+[2025-09-24 06:03:18 training_loop.py 83 INFO]: 357185/458752 (731514880/939524096), lr=0.00288, loss=1624.67065
+[2025-09-24 06:12:54 training_loop.py 83 INFO]: 357249/458752 (731645952/939524096), lr=0.00288, loss=1452.51318
+[2025-09-24 06:22:30 training_loop.py 83 INFO]: 357313/458752 (731777024/939524096), lr=0.00288, loss=2522.20093
+[2025-09-24 06:32:06 training_loop.py 83 INFO]: 357377/458752 (731908096/939524096), lr=0.00288, loss=2142.29688
+[2025-09-24 06:41:42 training_loop.py 83 INFO]: 357441/458752 (732039168/939524096), lr=0.00288, loss=2553.67432
+[2025-09-24 06:51:19 training_loop.py 83 INFO]: 357505/458752 (732170240/939524096), lr=0.00288, loss=2110.93604
+[2025-09-24 07:00:55 training_loop.py 83 INFO]: 357569/458752 (732301312/939524096), lr=0.00288, loss=2167.99487
+[2025-09-24 07:10:32 training_loop.py 83 INFO]: 357633/458752 (732432384/939524096), lr=0.00288, loss=2116.39233
+[2025-09-24 07:20:08 training_loop.py 83 INFO]: 357697/458752 (732563456/939524096), lr=0.00288, loss=1974.23608
+[2025-09-24 07:29:44 training_loop.py 83 INFO]: 357761/458752 (732694528/939524096), lr=0.00288, loss=1867.63696
+[2025-09-24 07:39:21 training_loop.py 83 INFO]: 357825/458752 (732825600/939524096), lr=0.00287, loss=1947.30090
+[2025-09-24 07:48:57 training_loop.py 83 INFO]: 357889/458752 (732956672/939524096), lr=0.00287, loss=2753.75098
+[2025-09-24 07:58:33 training_loop.py 83 INFO]: 357953/458752 (733087744/939524096), lr=0.00287, loss=1717.12964
+[2025-09-24 08:08:09 training_loop.py 83 INFO]: 358017/458752 (733218816/939524096), lr=0.00287, loss=2928.47900
+[2025-09-24 08:17:45 training_loop.py 83 INFO]: 358081/458752 (733349888/939524096), lr=0.00287, loss=1854.93750
+[2025-09-24 08:27:21 training_loop.py 83 INFO]: 358145/458752 (733480960/939524096), lr=0.00287, loss=2548.14990
+[2025-09-24 08:36:58 training_loop.py 83 INFO]: 358209/458752 (733612032/939524096), lr=0.00287, loss=2209.38477
+[2025-09-24 08:46:34 training_loop.py 83 INFO]: 358273/458752 (733743104/939524096), lr=0.00287, loss=1974.73425
+[2025-09-24 08:56:10 training_loop.py 83 INFO]: 358337/458752 (733874176/939524096), lr=0.00287, loss=2218.89844
+[2025-09-24 09:05:46 training_loop.py 83 INFO]: 358401/458752 (734005248/939524096), lr=0.00287, loss=2561.86792
+[2025-09-24 09:15:22 training_loop.py 83 INFO]: 358465/458752 (734136320/939524096), lr=0.00287, loss=1541.50623
+[2025-09-24 09:24:58 training_loop.py 83 INFO]: 358529/458752 (734267392/939524096), lr=0.00287, loss=1775.41187
+[2025-09-24 09:34:34 training_loop.py 83 INFO]: 358593/458752 (734398464/939524096), lr=0.00287, loss=2645.45386
+[2025-09-24 09:44:10 training_loop.py 83 INFO]: 358657/458752 (734529536/939524096), lr=0.00287, loss=2277.34766
+[2025-09-24 09:53:47 training_loop.py 83 INFO]: 358721/458752 (734660608/939524096), lr=0.00287, loss=2517.72510
+[2025-09-24 10:03:23 training_loop.py 83 INFO]: 358785/458752 (734791680/939524096), lr=0.00287, loss=2749.59277
+[2025-09-24 10:12:58 training_loop.py 83 INFO]: 358849/458752 (734922752/939524096), lr=0.00287, loss=1619.86926
+[2025-09-24 10:22:34 training_loop.py 83 INFO]: 358913/458752 (735053824/939524096), lr=0.00287, loss=2239.10547
+[2025-09-24 10:32:09 training_loop.py 83 INFO]: 358977/458752 (735184896/939524096), lr=0.00287, loss=2382.81836
+[2025-09-24 10:41:46 training_loop.py 83 INFO]: 359041/458752 (735315968/939524096), lr=0.00287, loss=2100.56250
+[2025-09-24 10:51:21 training_loop.py 83 INFO]: 359105/458752 (735447040/939524096), lr=0.00287, loss=2294.92920
+[2025-09-24 11:00:58 training_loop.py 83 INFO]: 359169/458752 (735578112/939524096), lr=0.00287, loss=2580.41016
+[2025-09-24 11:10:33 training_loop.py 83 INFO]: 359233/458752 (735709184/939524096), lr=0.00287, loss=1595.45874
+[2025-09-24 11:20:09 training_loop.py 83 INFO]: 359297/458752 (735840256/939524096), lr=0.00287, loss=2397.70312
+[2025-09-24 11:29:45 training_loop.py 83 INFO]: 359361/458752 (735971328/939524096), lr=0.00287, loss=1825.38599
+[2025-09-24 11:39:22 training_loop.py 83 INFO]: 359425/458752 (736102400/939524096), lr=0.00287, loss=1802.24561
+[2025-09-24 11:48:57 training_loop.py 83 INFO]: 359489/458752 (736233472/939524096), lr=0.00287, loss=2366.47412
+[2025-09-24 11:58:33 training_loop.py 83 INFO]: 359553/458752 (736364544/939524096), lr=0.00287, loss=2417.38281
+[2025-09-24 12:08:10 training_loop.py 83 INFO]: 359617/458752 (736495616/939524096), lr=0.00287, loss=2324.42432
+[2025-09-24 12:17:47 training_loop.py 83 INFO]: 359681/458752 (736626688/939524096), lr=0.00287, loss=2522.23657
+[2025-09-24 12:27:23 training_loop.py 83 INFO]: 359745/458752 (736757760/939524096), lr=0.00287, loss=1765.74951
+[2025-09-24 12:36:58 training_loop.py 83 INFO]: 359809/458752 (736888832/939524096), lr=0.00287, loss=2099.29785
+[2025-09-24 12:46:34 training_loop.py 83 INFO]: 359873/458752 (737019904/939524096), lr=0.00287, loss=1753.25342
+[2025-09-24 12:56:10 training_loop.py 83 INFO]: 359937/458752 (737150976/939524096), lr=0.00287, loss=2388.04834
+[2025-09-24 13:05:47 training_loop.py 83 INFO]: 360001/458752 (737282048/939524096), lr=0.00287, loss=1643.09412
+[2025-09-24 13:15:23 training_loop.py 83 INFO]: 360065/458752 (737413120/939524096), lr=0.00287, loss=2007.12988
+[2025-09-24 13:24:59 training_loop.py 83 INFO]: 360129/458752 (737544192/939524096), lr=0.00287, loss=1882.01050
+[2025-09-24 13:34:35 training_loop.py 83 INFO]: 360193/458752 (737675264/939524096), lr=0.00287, loss=2439.59668
+[2025-09-24 13:44:11 training_loop.py 83 INFO]: 360257/458752 (737806336/939524096), lr=0.00287, loss=1381.25757
+[2025-09-24 13:53:47 training_loop.py 83 INFO]: 360321/458752 (737937408/939524096), lr=0.00286, loss=2421.44580
+[2025-09-24 14:03:23 training_loop.py 83 INFO]: 360385/458752 (738068480/939524096), lr=0.00286, loss=2201.11963
+[2025-09-24 14:12:49 checkpointer.py 240 INFO]: saving training states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/738197504_tmp/training_states.pt
+[2025-09-24 14:12:59 checkpointer.py 246 INFO]: saving model states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/738197504_tmp/model_state_dict.pt
+[2025-09-24 14:13:11 checkpointer.py 254 INFO]: saving EMA[0] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/738197504_tmp/ema_state_dict.pt.0
+[2025-09-24 14:13:24 checkpointer.py 254 INFO]: saving EMA[1] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/738197504_tmp/ema_state_dict.pt.1
+[2025-09-24 14:13:35 checkpointer.py 262 INFO]: saving optimizer states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/738197504_tmp/optim_state_dict.pt
+[2025-09-24 14:13:42 training_loop.py 83 INFO]: 360449/458752 (738199552/939524096), lr=0.00286, loss=3010.97437
+[2025-09-24 14:23:19 training_loop.py 83 INFO]: 360513/458752 (738330624/939524096), lr=0.00286, loss=1970.51709
+[2025-09-24 14:32:54 training_loop.py 83 INFO]: 360577/458752 (738461696/939524096), lr=0.00286, loss=2572.00293
+[2025-09-24 14:42:31 training_loop.py 83 INFO]: 360641/458752 (738592768/939524096), lr=0.00286, loss=2705.14282
+[2025-09-24 14:52:08 training_loop.py 83 INFO]: 360705/458752 (738723840/939524096), lr=0.00286, loss=2429.21460
+[2025-09-24 15:01:44 training_loop.py 83 INFO]: 360769/458752 (738854912/939524096), lr=0.00286, loss=2596.40088
+[2025-09-24 15:11:20 training_loop.py 83 INFO]: 360833/458752 (738985984/939524096), lr=0.00286, loss=2323.62891
+[2025-09-24 15:20:56 training_loop.py 83 INFO]: 360897/458752 (739117056/939524096), lr=0.00286, loss=2388.32764
+[2025-09-24 15:30:32 training_loop.py 83 INFO]: 360961/458752 (739248128/939524096), lr=0.00286, loss=2093.95337
+[2025-09-24 15:40:08 training_loop.py 83 INFO]: 361025/458752 (739379200/939524096), lr=0.00286, loss=2423.84668
+[2025-09-24 15:49:45 training_loop.py 83 INFO]: 361089/458752 (739510272/939524096), lr=0.00286, loss=2110.74365
+[2025-09-24 15:59:21 training_loop.py 83 INFO]: 361153/458752 (739641344/939524096), lr=0.00286, loss=1655.49536
+[2025-09-24 16:08:58 training_loop.py 83 INFO]: 361217/458752 (739772416/939524096), lr=0.00286, loss=2856.77002
+[2025-09-24 16:18:34 training_loop.py 83 INFO]: 361281/458752 (739903488/939524096), lr=0.00286, loss=1711.41016
+[2025-09-24 16:28:11 training_loop.py 83 INFO]: 361345/458752 (740034560/939524096), lr=0.00286, loss=2430.54663
+[2025-09-24 16:37:47 training_loop.py 83 INFO]: 361409/458752 (740165632/939524096), lr=0.00286, loss=1700.99805
+[2025-09-24 16:47:23 training_loop.py 83 INFO]: 361473/458752 (740296704/939524096), lr=0.00286, loss=1921.21680
+[2025-09-24 16:56:59 training_loop.py 83 INFO]: 361537/458752 (740427776/939524096), lr=0.00286, loss=1433.60815
+[2025-09-24 17:06:36 training_loop.py 83 INFO]: 361601/458752 (740558848/939524096), lr=0.00286, loss=2090.41479
+[2025-09-24 17:16:13 training_loop.py 83 INFO]: 361665/458752 (740689920/939524096), lr=0.00286, loss=2165.30762
+[2025-09-24 17:25:49 training_loop.py 83 INFO]: 361729/458752 (740820992/939524096), lr=0.00286, loss=1843.78613
+[2025-09-24 17:35:25 training_loop.py 83 INFO]: 361793/458752 (740952064/939524096), lr=0.00286, loss=2703.45093
+[2025-09-24 17:45:01 training_loop.py 83 INFO]: 361857/458752 (741083136/939524096), lr=0.00286, loss=2154.59473
+[2025-09-24 17:54:38 training_loop.py 83 INFO]: 361921/458752 (741214208/939524096), lr=0.00286, loss=1391.05688
+[2025-09-24 18:04:15 training_loop.py 83 INFO]: 361985/458752 (741345280/939524096), lr=0.00286, loss=2393.89551
+[2025-09-24 18:13:51 training_loop.py 83 INFO]: 362049/458752 (741476352/939524096), lr=0.00286, loss=1861.17749
+[2025-09-24 18:23:28 training_loop.py 83 INFO]: 362113/458752 (741607424/939524096), lr=0.00286, loss=1923.37048
+[2025-09-24 18:33:05 training_loop.py 83 INFO]: 362177/458752 (741738496/939524096), lr=0.00286, loss=1743.78601
+[2025-09-24 18:42:40 training_loop.py 83 INFO]: 362241/458752 (741869568/939524096), lr=0.00286, loss=2209.41577
+[2025-09-24 18:52:16 training_loop.py 83 INFO]: 362305/458752 (742000640/939524096), lr=0.00286, loss=2896.90527
+[2025-09-24 19:01:52 training_loop.py 83 INFO]: 362369/458752 (742131712/939524096), lr=0.00286, loss=2115.80273
+[2025-09-24 19:11:27 training_loop.py 83 INFO]: 362433/458752 (742262784/939524096), lr=0.00286, loss=1807.53491
+[2025-09-24 19:21:04 training_loop.py 83 INFO]: 362497/458752 (742393856/939524096), lr=0.00286, loss=1985.66565
+[2025-09-24 19:30:40 training_loop.py 83 INFO]: 362561/458752 (742524928/939524096), lr=0.00286, loss=1703.96680
+[2025-09-24 19:40:16 training_loop.py 83 INFO]: 362625/458752 (742656000/939524096), lr=0.00286, loss=1865.67920
+[2025-09-24 19:49:53 training_loop.py 83 INFO]: 362689/458752 (742787072/939524096), lr=0.00286, loss=2267.94434
+[2025-09-24 19:59:30 training_loop.py 83 INFO]: 362753/458752 (742918144/939524096), lr=0.00286, loss=2089.46387
+[2025-09-24 20:09:06 training_loop.py 83 INFO]: 362817/458752 (743049216/939524096), lr=0.00286, loss=2396.54932
+[2025-09-24 20:18:42 training_loop.py 83 INFO]: 362881/458752 (743180288/939524096), lr=0.00285, loss=1873.03442
+[2025-09-24 20:28:19 training_loop.py 83 INFO]: 362945/458752 (743311360/939524096), lr=0.00285, loss=1685.19202
+[2025-09-24 20:37:55 training_loop.py 83 INFO]: 363009/458752 (743442432/939524096), lr=0.00285, loss=2523.95947
+[2025-09-24 20:47:32 training_loop.py 83 INFO]: 363073/458752 (743573504/939524096), lr=0.00285, loss=3057.72510
+[2025-09-24 20:57:08 training_loop.py 83 INFO]: 363137/458752 (743704576/939524096), lr=0.00285, loss=1813.93970
+[2025-09-24 21:06:45 training_loop.py 83 INFO]: 363201/458752 (743835648/939524096), lr=0.00285, loss=2776.02783
+[2025-09-24 21:16:21 training_loop.py 83 INFO]: 363265/458752 (743966720/939524096), lr=0.00285, loss=2186.67944
+[2025-09-24 21:25:57 training_loop.py 83 INFO]: 363329/458752 (744097792/939524096), lr=0.00285, loss=1984.73523
+[2025-09-24 21:35:33 training_loop.py 83 INFO]: 363393/458752 (744228864/939524096), lr=0.00285, loss=2373.72266
+[2025-09-24 21:45:10 training_loop.py 83 INFO]: 363457/458752 (744359936/939524096), lr=0.00285, loss=2347.00562
+[2025-09-24 21:54:46 training_loop.py 83 INFO]: 363521/458752 (744491008/939524096), lr=0.00285, loss=1220.99365
+[2025-09-24 22:04:23 training_loop.py 83 INFO]: 363585/458752 (744622080/939524096), lr=0.00285, loss=2668.99365
+[2025-09-24 22:13:59 training_loop.py 83 INFO]: 363649/458752 (744753152/939524096), lr=0.00285, loss=2379.81787
+[2025-09-24 22:23:36 training_loop.py 83 INFO]: 363713/458752 (744884224/939524096), lr=0.00285, loss=1952.24731
+[2025-09-24 22:33:12 training_loop.py 83 INFO]: 363777/458752 (745015296/939524096), lr=0.00285, loss=2443.83252
+[2025-09-24 22:42:48 training_loop.py 83 INFO]: 363841/458752 (745146368/939524096), lr=0.00285, loss=2506.81738
+[2025-09-24 22:52:25 training_loop.py 83 INFO]: 363905/458752 (745277440/939524096), lr=0.00285, loss=2723.36670
+[2025-09-24 23:02:01 training_loop.py 83 INFO]: 363969/458752 (745408512/939524096), lr=0.00285, loss=2187.06299
+[2025-09-24 23:11:37 training_loop.py 83 INFO]: 364033/458752 (745539584/939524096), lr=0.00285, loss=1871.30713
+[2025-09-24 23:21:13 training_loop.py 83 INFO]: 364097/458752 (745670656/939524096), lr=0.00285, loss=1988.23816
+[2025-09-24 23:30:49 training_loop.py 83 INFO]: 364161/458752 (745801728/939524096), lr=0.00285, loss=2172.00879
+[2025-09-24 23:40:25 training_loop.py 83 INFO]: 364225/458752 (745932800/939524096), lr=0.00285, loss=2352.77148
+[2025-09-24 23:50:02 training_loop.py 83 INFO]: 364289/458752 (746063872/939524096), lr=0.00285, loss=2701.51123
+[2025-09-24 23:59:38 training_loop.py 83 INFO]: 364353/458752 (746194944/939524096), lr=0.00285, loss=2254.26440
+[2025-09-25 00:09:13 training_loop.py 83 INFO]: 364417/458752 (746326016/939524096), lr=0.00285, loss=1726.02466
+[2025-09-25 00:18:50 training_loop.py 83 INFO]: 364481/458752 (746457088/939524096), lr=0.00285, loss=2240.84570
+[2025-09-25 00:28:17 checkpointer.py 240 INFO]: saving training states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/746586112_tmp/training_states.pt
+[2025-09-25 00:28:26 checkpointer.py 246 INFO]: saving model states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/746586112_tmp/model_state_dict.pt
+[2025-09-25 00:28:43 checkpointer.py 254 INFO]: saving EMA[0] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/746586112_tmp/ema_state_dict.pt.0
+[2025-09-25 00:28:59 checkpointer.py 254 INFO]: saving EMA[1] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/746586112_tmp/ema_state_dict.pt.1
+[2025-09-25 00:29:06 checkpointer.py 262 INFO]: saving optimizer states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/746586112_tmp/optim_state_dict.pt
+[2025-09-25 00:29:12 training_loop.py 83 INFO]: 364545/458752 (746588160/939524096), lr=0.00285, loss=1320.93835
+[2025-09-25 00:38:49 training_loop.py 83 INFO]: 364609/458752 (746719232/939524096), lr=0.00285, loss=1684.47070
+[2025-09-25 00:48:25 training_loop.py 83 INFO]: 364673/458752 (746850304/939524096), lr=0.00285, loss=1863.88574
+[2025-09-25 00:58:02 training_loop.py 83 INFO]: 364737/458752 (746981376/939524096), lr=0.00285, loss=2231.95898
+[2025-09-25 01:07:38 training_loop.py 83 INFO]: 364801/458752 (747112448/939524096), lr=0.00285, loss=2520.62280
+[2025-09-25 01:17:15 training_loop.py 83 INFO]: 364865/458752 (747243520/939524096), lr=0.00285, loss=1757.39490
+[2025-09-25 01:26:51 training_loop.py 83 INFO]: 364929/458752 (747374592/939524096), lr=0.00285, loss=1855.58008
+[2025-09-25 01:36:27 training_loop.py 83 INFO]: 364993/458752 (747505664/939524096), lr=0.00285, loss=2474.90454
+[2025-09-25 01:46:03 training_loop.py 83 INFO]: 365057/458752 (747636736/939524096), lr=0.00285, loss=1847.48901
+[2025-09-25 01:55:39 training_loop.py 83 INFO]: 365121/458752 (747767808/939524096), lr=0.00285, loss=2071.14648
+[2025-09-25 02:05:15 training_loop.py 83 INFO]: 365185/458752 (747898880/939524096), lr=0.00285, loss=1876.43628
+[2025-09-25 02:14:52 training_loop.py 83 INFO]: 365249/458752 (748029952/939524096), lr=0.00285, loss=2364.90430
+[2025-09-25 02:24:28 training_loop.py 83 INFO]: 365313/458752 (748161024/939524096), lr=0.00285, loss=2562.64307
+[2025-09-25 02:34:05 training_loop.py 83 INFO]: 365377/458752 (748292096/939524096), lr=0.00285, loss=1869.10986
+[2025-09-25 02:43:41 training_loop.py 83 INFO]: 365441/458752 (748423168/939524096), lr=0.00284, loss=1521.53784
+[2025-09-25 02:53:18 training_loop.py 83 INFO]: 365505/458752 (748554240/939524096), lr=0.00284, loss=1894.75269
+[2025-09-25 03:02:54 training_loop.py 83 INFO]: 365569/458752 (748685312/939524096), lr=0.00284, loss=2157.82422
+[2025-09-25 03:12:31 training_loop.py 83 INFO]: 365633/458752 (748816384/939524096), lr=0.00284, loss=1844.99585
+[2025-09-25 03:22:08 training_loop.py 83 INFO]: 365697/458752 (748947456/939524096), lr=0.00284, loss=2695.50317
+[2025-09-25 03:31:44 training_loop.py 83 INFO]: 365761/458752 (749078528/939524096), lr=0.00284, loss=1899.30286
+[2025-09-25 03:41:20 training_loop.py 83 INFO]: 365825/458752 (749209600/939524096), lr=0.00284, loss=2114.33301
+[2025-09-25 03:50:56 training_loop.py 83 INFO]: 365889/458752 (749340672/939524096), lr=0.00284, loss=2667.06152
+[2025-09-25 04:00:31 training_loop.py 83 INFO]: 365953/458752 (749471744/939524096), lr=0.00284, loss=2397.94971
+[2025-09-25 04:10:06 training_loop.py 83 INFO]: 366017/458752 (749602816/939524096), lr=0.00284, loss=2850.45557
+[2025-09-25 04:19:43 training_loop.py 83 INFO]: 366081/458752 (749733888/939524096), lr=0.00284, loss=1811.96570
+[2025-09-25 04:29:20 training_loop.py 83 INFO]: 366145/458752 (749864960/939524096), lr=0.00284, loss=2054.83398
+[2025-09-25 04:38:56 training_loop.py 83 INFO]: 366209/458752 (749996032/939524096), lr=0.00284, loss=2149.75757
+[2025-09-25 04:48:32 training_loop.py 83 INFO]: 366273/458752 (750127104/939524096), lr=0.00284, loss=1707.26868
+[2025-09-25 04:58:08 training_loop.py 83 INFO]: 366337/458752 (750258176/939524096), lr=0.00284, loss=2607.95508
+[2025-09-25 05:07:44 training_loop.py 83 INFO]: 366401/458752 (750389248/939524096), lr=0.00284, loss=2601.67749
+[2025-09-25 05:17:20 training_loop.py 83 INFO]: 366465/458752 (750520320/939524096), lr=0.00284, loss=1848.42969
+[2025-09-25 05:26:56 training_loop.py 83 INFO]: 366529/458752 (750651392/939524096), lr=0.00284, loss=1756.56226
+[2025-09-25 05:36:32 training_loop.py 83 INFO]: 366593/458752 (750782464/939524096), lr=0.00284, loss=1819.67505
+[2025-09-25 05:46:08 training_loop.py 83 INFO]: 366657/458752 (750913536/939524096), lr=0.00284, loss=2267.19434
+[2025-09-25 05:55:44 training_loop.py 83 INFO]: 366721/458752 (751044608/939524096), lr=0.00284, loss=2266.63086
+[2025-09-25 06:05:19 training_loop.py 83 INFO]: 366785/458752 (751175680/939524096), lr=0.00284, loss=1845.21887
+[2025-09-25 06:14:55 training_loop.py 83 INFO]: 366849/458752 (751306752/939524096), lr=0.00284, loss=2434.89746
+[2025-09-25 06:24:32 training_loop.py 83 INFO]: 366913/458752 (751437824/939524096), lr=0.00284, loss=2941.31494
+[2025-09-25 06:34:08 training_loop.py 83 INFO]: 366977/458752 (751568896/939524096), lr=0.00284, loss=2832.65015
+[2025-09-25 06:43:44 training_loop.py 83 INFO]: 367041/458752 (751699968/939524096), lr=0.00284, loss=2341.12451
+[2025-09-25 06:53:20 training_loop.py 83 INFO]: 367105/458752 (751831040/939524096), lr=0.00284, loss=1659.21289
+[2025-09-25 07:02:57 training_loop.py 83 INFO]: 367169/458752 (751962112/939524096), lr=0.00284, loss=2675.17822
+[2025-09-25 07:12:34 training_loop.py 83 INFO]: 367233/458752 (752093184/939524096), lr=0.00284, loss=2047.44470
+[2025-09-25 07:22:10 training_loop.py 83 INFO]: 367297/458752 (752224256/939524096), lr=0.00284, loss=1178.95166
+[2025-09-25 07:31:46 training_loop.py 83 INFO]: 367361/458752 (752355328/939524096), lr=0.00284, loss=1816.62585
+[2025-09-25 07:41:22 training_loop.py 83 INFO]: 367425/458752 (752486400/939524096), lr=0.00284, loss=2614.85303
+[2025-09-25 07:50:59 training_loop.py 83 INFO]: 367489/458752 (752617472/939524096), lr=0.00284, loss=2414.80786
+[2025-09-25 08:00:35 training_loop.py 83 INFO]: 367553/458752 (752748544/939524096), lr=0.00284, loss=2750.85718
+[2025-09-25 08:10:11 training_loop.py 83 INFO]: 367617/458752 (752879616/939524096), lr=0.00284, loss=2280.59521
+[2025-09-25 08:19:48 training_loop.py 83 INFO]: 367681/458752 (753010688/939524096), lr=0.00284, loss=2483.14990
+[2025-09-25 08:29:24 training_loop.py 83 INFO]: 367745/458752 (753141760/939524096), lr=0.00284, loss=1677.04456
+[2025-09-25 08:39:01 training_loop.py 83 INFO]: 367809/458752 (753272832/939524096), lr=0.00284, loss=1945.05127
+[2025-09-25 08:48:37 training_loop.py 83 INFO]: 367873/458752 (753403904/939524096), lr=0.00284, loss=1168.74622
+[2025-09-25 08:58:14 training_loop.py 83 INFO]: 367937/458752 (753534976/939524096), lr=0.00284, loss=1989.96851
+[2025-09-25 09:07:50 training_loop.py 83 INFO]: 368001/458752 (753666048/939524096), lr=0.00283, loss=2276.35303
+[2025-09-25 09:17:25 training_loop.py 83 INFO]: 368065/458752 (753797120/939524096), lr=0.00283, loss=2353.53271
+[2025-09-25 09:27:01 training_loop.py 83 INFO]: 368129/458752 (753928192/939524096), lr=0.00283, loss=1843.87317
+[2025-09-25 09:36:38 training_loop.py 83 INFO]: 368193/458752 (754059264/939524096), lr=0.00283, loss=1582.84839
+[2025-09-25 09:46:14 training_loop.py 83 INFO]: 368257/458752 (754190336/939524096), lr=0.00283, loss=2670.59766
+[2025-09-25 09:55:50 training_loop.py 83 INFO]: 368321/458752 (754321408/939524096), lr=0.00283, loss=2007.83997
+[2025-09-25 10:05:26 training_loop.py 83 INFO]: 368385/458752 (754452480/939524096), lr=0.00283, loss=2117.47559
+[2025-09-25 10:15:02 training_loop.py 83 INFO]: 368449/458752 (754583552/939524096), lr=0.00283, loss=3057.79785
+[2025-09-25 10:24:37 training_loop.py 83 INFO]: 368513/458752 (754714624/939524096), lr=0.00283, loss=2084.93872
+[2025-09-25 10:34:14 training_loop.py 83 INFO]: 368577/458752 (754845696/939524096), lr=0.00283, loss=1882.13721
+[2025-09-25 10:43:40 checkpointer.py 240 INFO]: saving training states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/754974720_tmp/training_states.pt
+[2025-09-25 10:43:50 checkpointer.py 246 INFO]: saving model states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/754974720_tmp/model_state_dict.pt
+[2025-09-25 10:44:08 checkpointer.py 254 INFO]: saving EMA[0] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/754974720_tmp/ema_state_dict.pt.0
+[2025-09-25 10:44:20 checkpointer.py 254 INFO]: saving EMA[1] states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/754974720_tmp/ema_state_dict.pt.1
+[2025-09-25 10:44:27 checkpointer.py 262 INFO]: saving optimizer states: /scratch/fp0/jxg900/barra2_fsdp_model_runs_v3_improved_data2/00000-edm2-img512-xxl/dtensor_api/754974720_tmp/optim_state_dict.pt
+[2025-09-25 10:44:33 training_loop.py 83 INFO]: 368641/458752 (754976768/939524096), lr=0.00283, loss=2251.91284
+[2025-09-25 10:54:09 training_loop.py 83 INFO]: 368705/458752 (755107840/939524096), lr=0.00283, loss=1997.71863
+[2025-09-25 11:03:45 training_loop.py 83 INFO]: 368769/458752 (755238912/939524096), lr=0.00283, loss=2409.21875
+[2025-09-25 11:13:21 training_loop.py 83 INFO]: 368833/458752 (755369984/939524096), lr=0.00283, loss=2336.57422
+[2025-09-25 11:22:57 training_loop.py 83 INFO]: 368897/458752 (755501056/939524096), lr=0.00283, loss=1635.92847
+[2025-09-25 11:32:33 training_loop.py 83 INFO]: 368961/458752 (755632128/939524096), lr=0.00283, loss=2375.26074
+[2025-09-25 11:42:10 training_loop.py 83 INFO]: 369025/458752 (755763200/939524096), lr=0.00283, loss=2136.22949
+[2025-09-25 11:51:46 training_loop.py 83 INFO]: 369089/458752 (755894272/939524096), lr=0.00283, loss=2745.82812
+[2025-09-25 12:01:23 training_loop.py 83 INFO]: 369153/458752 (756025344/939524096), lr=0.00283, loss=2202.15869
+[2025-09-25 12:11:00 training_loop.py 83 INFO]: 369217/458752 (756156416/939524096), lr=0.00283, loss=2111.99414
+[2025-09-25 12:20:36 training_loop.py 83 INFO]: 369281/458752 (756287488/939524096), lr=0.00283, loss=2598.89893
+[2025-09-25 12:30:12 training_loop.py 83 INFO]: 369345/458752 (756418560/939524096), lr=0.00283, loss=2510.15649
+[2025-09-25 12:39:48 training_loop.py 83 INFO]: 369409/458752 (756549632/939524096), lr=0.00283, loss=2289.42554
+[2025-09-25 12:49:25 training_loop.py 83 INFO]: 369473/458752 (756680704/939524096), lr=0.00283, loss=2321.97656
+[2025-09-25 12:59:01 training_loop.py 83 INFO]: 369537/458752 (756811776/939524096), lr=0.00283, loss=1607.91821
+[2025-09-25 13:08:38 training_loop.py 83 INFO]: 369601/458752 (756942848/939524096), lr=0.00283, loss=2341.23779
+[2025-09-25 13:18:14 training_loop.py 83 INFO]: 369665/458752 (757073920/939524096), lr=0.00283, loss=2190.70947
+[2025-09-25 13:27:50 training_loop.py 83 INFO]: 369729/458752 (757204992/939524096), lr=0.00283, loss=2516.94629
+[2025-09-25 13:37:27 training_loop.py 83 INFO]: 369793/458752 (757336064/939524096), lr=0.00283, loss=2331.13770
+[2025-09-25 13:47:04 training_loop.py 83 INFO]: 369857/458752 (757467136/939524096), lr=0.00283, loss=1833.96716
+[2025-09-25 13:56:40 training_loop.py 83 INFO]: 369921/458752 (757598208/939524096), lr=0.00283, loss=2820.91016
+[2025-09-25 14:06:17 training_loop.py 83 INFO]: 369985/458752 (757729280/939524096), lr=0.00283, loss=1789.59253
+[2025-09-25 14:15:53 training_loop.py 83 INFO]: 370049/458752 (757860352/939524096), lr=0.00283, loss=2797.36133
+[2025-09-25 14:25:29 training_loop.py 83 INFO]: 370113/458752 (757991424/939524096), lr=0.00283, loss=2174.16699
+[2025-09-25 14:35:05 training_loop.py 83 INFO]: 370177/458752 (758122496/939524096), lr=0.00283, loss=1927.85730
+[2025-09-25 14:44:42 training_loop.py 83 INFO]: 370241/458752 (758253568/939524096), lr=0.00283, loss=2383.59033
+[2025-09-25 14:54:19 training_loop.py 83 INFO]: 370305/458752 (758384640/939524096), lr=0.00283, loss=2492.93213
+[2025-09-25 15:03:54 training_loop.py 83 INFO]: 370369/458752 (758515712/939524096), lr=0.00283, loss=1998.98743
+[2025-09-25 15:13:30 training_loop.py 83 INFO]: 370433/458752 (758646784/939524096), lr=0.00283, loss=2395.14990
+[2025-09-25 15:23:07 training_loop.py 83 INFO]: 370497/458752 (758777856/939524096), lr=0.00283, loss=2450.17676
+[2025-09-25 15:32:44 training_loop.py 83 INFO]: 370561/458752 (758908928/939524096), lr=0.00283, loss=2477.69019
+[2025-09-25 15:42:20 training_loop.py 83 INFO]: 370625/458752 (759040000/939524096), lr=0.00282, loss=2997.38013
+[2025-09-25 15:51:57 training_loop.py 83 INFO]: 370689/458752 (759171072/939524096), lr=0.00282, loss=2409.01660
+[2025-09-25 16:01:33 training_loop.py 83 INFO]: 370753/458752 (759302144/939524096), lr=0.00282, loss=2339.81396
+[2025-09-25 16:11:10 training_loop.py 83 INFO]: 370817/458752 (759433216/939524096), lr=0.00282, loss=1794.17346
+[2025-09-25 16:20:46 training_loop.py 83 INFO]: 370881/458752 (759564288/939524096), lr=0.00282, loss=2028.97461
+[2025-09-25 16:30:22 training_loop.py 83 INFO]: 370945/458752 (759695360/939524096), lr=0.00282, loss=2000.46655
+[2025-09-25 16:39:59 training_loop.py 83 INFO]: 371009/458752 (759826432/939524096), lr=0.00282, loss=1502.72559
+[2025-09-25 16:49:35 training_loop.py 83 INFO]: 371073/458752 (759957504/939524096), lr=0.00282, loss=2714.78223
+[2025-09-25 16:59:11 training_loop.py 83 INFO]: 371137/458752 (760088576/939524096), lr=0.00282, loss=2595.44238
+[2025-09-25 17:08:48 training_loop.py 83 INFO]: 371201/458752 (760219648/939524096), lr=0.00282, loss=2423.95654
+[2025-09-25 17:18:24 training_loop.py 83 INFO]: 371265/458752 (760350720/939524096), lr=0.00282, loss=2022.76807
+[2025-09-25 17:28:01 training_loop.py 83 INFO]: 371329/458752 (760481792/939524096), lr=0.00282, loss=2034.94531
+
+======================================================================================
+                  Resource Usage on 2025-09-25 17:37:16:
+   Job Id:             149926933.gadi-pbs
+   Project:            fp0
+   Exit Status:        -29 (Job failed due to exceeding walltime)
+   Service Units:      13826.48
+   NCPUs Requested:    96                     NCPUs Used: 96              
+                                           CPU Time Used: 688:19:36       
+   Memory Requested:   720.0GB               Memory Used: 194.04GB        
+   NGPUs Requested:    8                 GPU Utilisation: 630%            
+                                         GPU Memory Used: 252.98GB        
+   Walltime requested: 48:00:00            Walltime Used: 48:00:31        
+   JobFS requested:    200.0GB                JobFS used: 197.6KB         
+======================================================================================

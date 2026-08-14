@@ -1,0 +1,158 @@
+Loading python3/3.10.4
+  Loading requirement: intel-mkl/2021.4.0
+=>> PBS: job killed: walltime 172819 exceeded limit 172800
+rm: cannot remove '/local/spool/pbs/aux/149926933.gadi-pbs': Permission denied
+/local/spool/pbs/mom_priv/jobs/149926933.gadi-pbs.SC: line 59: 3845739 Terminated              ( cd $curr_dir; mpirun -np $num_nodes --hostfile $hostfile -bind-to none --map-by node -x LD_LIBRARY_PATH -x PATH -x NCCL_SOCKET_NTHREADS=4 -x NCCL_NSOCKS_PERTHREAD=4 -mca pml ob1 -mca btl ^openib torchrun --nnodes=$num_nodes --nproc_per_node=$local_world_size --rdzv_id=0 --rdzv_backend=c10d --rdzv_endpoint="$(head -n1 $hostfile):29601" train_edm2.py --outdir=$output_path --data=$data_path --preset=$network_arch --batch-gpu=$batch_size --grad-accumulation=$accum_steps --model-shards=$model_shards )
+W0925 17:37:00.258084 3845747 torch/distributed/elastic/agent/server/api.py:719] Received Signals.SIGTERM death signal, shutting down workers
+W0925 17:37:00.265861 3845747 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3845751 closing signal SIGTERM
+W0925 17:37:00.267798 3845747 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3845752 closing signal SIGTERM
+W0925 17:37:00.268599 3845747 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3845753 closing signal SIGTERM
+W0925 17:37:00.269247 3845747 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 3845754 closing signal SIGTERM
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    result = agent.run()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 711, in run
+    result = self._invoke_run(role)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 870, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 3845747 got signal: 15
+[rank6]:[W925 17:37:01.280647458 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0138.gadi.nci.org.au]:48916, remote=[gadi-gpu-v100-0133.gadi.nci.org.au]:43219): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x15072c1915e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x150770e8fb0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x150770e91e50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x150770e9275a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x150770e8c1b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x15072d3ef729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x1507298ceb23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x150794e7c1ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x15079434c8d3 in /lib64/libc.so.6)
+
+[rank6]:[W925 17:37:01.292388796 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 6] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank7]:[W925 17:37:01.280652112 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0138.gadi.nci.org.au]:48902, remote=[gadi-gpu-v100-0133.gadi.nci.org.au]:43219): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x14d28bdeb5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x14d2d0ae9b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x14d2d0aebe50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x14d2d0aec75a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x14d2d0ae61b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x14d28d049729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x14d289528b23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x14d2f4ad61ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x14d2f3fa68d3 in /lib64/libc.so.6)
+
+[rank7]:[W925 17:37:01.292530514 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 7] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank5]:[W925 17:37:01.295059395 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0138.gadi.nci.org.au]:48884, remote=[gadi-gpu-v100-0133.gadi.nci.org.au]:43219): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x1488a11eb5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x1488e5ee9b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x1488e5eebe50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x1488e5eec75a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x1488e5ee61b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x1488a2449729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x14889e928b23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x148909ed61ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x1489093a68d3 in /lib64/libc.so.6)
+
+[rank5]:[W925 17:37:01.307227553 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 5] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank4]:[W925 17:37:01.295660590 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0138.gadi.nci.org.au]:48894, remote=[gadi-gpu-v100-0133.gadi.nci.org.au]:43219): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x14b1d53b95e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x14b21a0b7b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x14b21a0b9e50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x14b21a0ba75a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x14b21a0b41b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x14b1d6617729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x14b1d2af6b23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x14b23e0a41ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x14b23d5748d3 in /lib64/libc.so.6)
+
+[rank4]:[W925 17:37:01.308083993 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 4] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+W0925 17:37:01.981118 2262849 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2262859 closing signal SIGTERM
+W0925 17:37:01.985480 2262849 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2262860 closing signal SIGTERM
+W0925 17:37:01.986411 2262849 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2262861 closing signal SIGTERM
+W0925 17:37:01.987113 2262849 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2262862 closing signal SIGTERM
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 117, in _call_store
+    return getattr(self._store, store_op)(*args, **kwargs)
+torch.distributed.DistNetworkError: failed to recv, got 0 bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 711, in run
+    result = self._invoke_run(role)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 906, in _invoke_run
+    num_nodes_waiting = rdzv_handler.num_nodes_waiting()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1263, in num_nodes_waiting
+    self._state_holder.sync()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 437, in sync
+    get_response = self._backend.get_state()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 75, in get_state
+    base64_state: bytes = self._call_store("get", self._key)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 119, in _call_store
+    raise RendezvousConnectionError(
+torch.distributed.elastic.rendezvous.api.RendezvousConnectionError: The connection to the C10d store has failed. See inner exception for details.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    result = agent.run()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 725, in run
+    self._shutdown()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/local_elastic_agent.py", line 372, in _shutdown
+    self._pcontext.close(death_sig)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 577, in close
+    self._close(death_sig=death_sig, timeout=timeout)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 912, in _close
+    handler.proc.wait(time_to_wait)
+  File "/apps/python3/3.10.4/lib/python3.10/subprocess.py", line 1204, in wait
+    return self._wait(timeout=timeout)
+  File "/apps/python3/3.10.4/lib/python3.10/subprocess.py", line 1932, in _wait
+    time.sleep(delay)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2262849 got signal: 15

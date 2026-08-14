@@ -1,0 +1,194 @@
+Loading python3/3.10.4
+  Loading requirement: intel-mkl/2021.4.0
+=>> PBS: job killed: walltime 172890 exceeded limit 172800
+rm: cannot remove '/local/spool/pbs/aux/149654466.gadi-pbs': Permission denied
+/local/spool/pbs/mom_priv/jobs/149654466.gadi-pbs.SC: line 59: 1643813 Terminated              ( cd $curr_dir; mpirun -np $num_nodes --hostfile $hostfile -bind-to none --map-by node -x LD_LIBRARY_PATH -x PATH -x NCCL_SOCKET_NTHREADS=4 -x NCCL_NSOCKS_PERTHREAD=4 -mca pml ob1 -mca btl ^openib torchrun --nnodes=$num_nodes --nproc_per_node=$local_world_size --rdzv_id=0 --rdzv_backend=c10d --rdzv_endpoint="$(head -n1 $hostfile):29601" train_edm2.py --outdir=$output_path --data=$data_path --preset=$network_arch --batch-gpu=$batch_size --grad-accumulation=$accum_steps --model-shards=$model_shards )
+W0916 14:49:40.635384 1643821 torch/distributed/elastic/agent/server/api.py:719] Received Signals.SIGTERM death signal, shutting down workers
+W0916 14:49:40.641688 1643821 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1643826 closing signal SIGTERM
+W0916 14:49:40.643873 1643821 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1643827 closing signal SIGTERM
+W0916 14:49:40.644573 1643821 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1643828 closing signal SIGTERM
+W0916 14:49:40.645206 1643821 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1643829 closing signal SIGTERM
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    result = agent.run()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 711, in run
+    result = self._invoke_run(role)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 870, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 1643821 got signal: 15
+[rank6]:[W916 14:49:42.862722340 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:46112, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:44627): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x153b590a65e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x153b9dda4b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x153b9dda6e50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x153b9dda775a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x153b9dda11b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x153b5a304729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x153b567e3b23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x153bc1d911ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x153bc12618d3 in /lib64/libc.so.6)
+
+[rank6]:[W916 14:49:42.869980147 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 6] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank5]:[W916 14:49:42.862660103 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:46110, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:44627): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x152d33c225e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x152d78920b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x152d78922e50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x152d7892375a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x152d7891d1b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x152d34e80729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x152d3135fb23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x152d9c90d1ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x152d9bddd8d3 in /lib64/libc.so.6)
+
+[rank5]:[W916 14:49:42.870595409 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 5] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank4]:[W916 14:49:42.862678280 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:46116, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:44627): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x146234b4d5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x14627984bb0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x14627984de50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x14627984e75a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x1462798481b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x146235dab729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x14623228ab23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x14629d8381ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x14629cd088d3 in /lib64/libc.so.6)
+
+[rank4]:[W916 14:49:42.870957291 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 4] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[rank7]:[W916 14:49:42.862600445 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=23, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:46094, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:44627): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x149b603025e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x149ba5000b0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baae50 (0x149ba5002e50 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5bab75a (0x149ba500375a in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x2a9 (0x149ba4ffd1b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::heartbeatMonitor() + 0x379 (0x149b61560729 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xc2b23 (0x149b5da3fb23 in /lib64/libstdc++.so.6)
+frame #7: <unknown function> + 0x81ca (0x149bc8fed1ca in /lib64/libpthread.so.0)
+frame #8: clone + 0x43 (0x149bc84bd8d3 in /lib64/libc.so.6)
+
+[rank7]:[W916 14:49:42.874807874 ProcessGroupNCCL.cpp:1662] [PG ID 0 PG GUID 0(default_pg) Rank 7] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: failed to recv, got 0 bytes
+[W916 14:49:42.000621694 TCPStore.cpp:115] [c10d] recvVector failed on SocketImpl(fd=3, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:45668, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:29601): failed to recv, got 0 bytes
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:678 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x1485861bc5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x1485caebab0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baa0e0 (0x1485caebc0e0 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5baa82d (0x1485caebc82d in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: <unknown function> + 0x5bab4b9 (0x1485caebd4b9 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::TCPStore::compareSet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&) + 0x1fb (0x1485caeb74db in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: <unknown function> + 0xc294e1 (0x1485d9d644e1 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x3894fe (0x1485d94c44fe in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+<omitting python frames>
+frame #38: <unknown function> + 0x81ca (0x1485eeea71ca in /lib64/libpthread.so.0)
+frame #39: clone + 0x43 (0x1485ee3778d3 in /lib64/libc.so.6)
+
+W0916 14:49:42.584098 1738561 torch/distributed/elastic/rendezvous/dynamic_rendezvous.py:1341] The node 'gadi-gpu-v100-0119.gadi.nci.org.au_1738561_0' has failed to send a keep-alive heartbeat to the rendezvous '0' due to an error of type RendezvousConnectionError.
+[W916 14:49:42.034275215 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=3, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:45668, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:29601): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x1485861bc5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x1485caebab0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baa368 (0x1485caebc368 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5babb4e (0x1485caebdb4e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::compareSet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&) + 0x299 (0x1485caeb7579 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0xc294e1 (0x1485d9d644e1 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+frame #6: <unknown function> + 0x3894fe (0x1485d94c44fe in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+<omitting python frames>
+frame #50: __libc_start_main + 0xe5 (0x1485ee3787e5 in /lib64/libc.so.6)
+frame #51: _start + 0x2e (0x4006ae in /scratch/z00/jxg900/python_env/bin/python3)
+
+W0916 14:49:42.593780 1738561 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1738566 closing signal SIGTERM
+W0916 14:49:42.594319 1738561 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1738567 closing signal SIGTERM
+W0916 14:49:42.595148 1738561 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1738568 closing signal SIGTERM
+W0916 14:49:42.595686 1738561 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 1738569 closing signal SIGTERM
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/apps/python3/3.10.4/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 17 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+[W916 14:49:43.939783974 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=3, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:45668, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:29601): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x1485861bc5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x1485caebab0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baa368 (0x1485caebc368 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5babb4e (0x1485caebdb4e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::compareSet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&) + 0x299 (0x1485caeb7579 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0xc294e1 (0x1485d9d644e1 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+frame #6: <unknown function> + 0x3894fe (0x1485d94c44fe in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+<omitting python frames>
+frame #54: __libc_start_main + 0xe5 (0x1485ee3787e5 in /lib64/libc.so.6)
+frame #55: _start + 0x2e (0x4006ae in /scratch/z00/jxg900/python_env/bin/python3)
+
+W0916 14:49:43.510120 1738561 torch/distributed/elastic/rendezvous/dynamic_rendezvous.py:1292] The node 'gadi-gpu-v100-0119.gadi.nci.org.au_1738561_0' has failed to shutdown the rendezvous '0' due to an error of type RendezvousConnectionError.
+[W916 14:49:43.993924290 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=3, addr=[gadi-gpu-v100-0119.gadi.nci.org.au]:45668, remote=[gadi-gpu-v100-0118.gadi.nci.org.au]:29601): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x98 (0x1485861bc5e8 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ba8b0e (0x1485caebab0e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5baa368 (0x1485caebc368 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5babb4e (0x1485caebdb4e in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::compareSet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&, std::vector<unsigned char, std::allocator<unsigned char> > const&) + 0x299 (0x1485caeb7579 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0xc294e1 (0x1485d9d644e1 in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+frame #6: <unknown function> + 0x3894fe (0x1485d94c44fe in /scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/lib/libtorch_python.so)
+<omitting python frames>
+frame #47: __libc_start_main + 0xe5 (0x1485ee3787e5 in /lib64/libc.so.6)
+frame #48: _start + 0x2e (0x4006ae in /scratch/z00/jxg900/python_env/bin/python3)
+
+W0916 14:49:43.557587 1738561 torch/distributed/elastic/rendezvous/dynamic_rendezvous.py:1292] The node 'gadi-gpu-v100-0119.gadi.nci.org.au_1738561_0' has failed to shutdown the rendezvous '0' due to an error of type RendezvousConnectionError.
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 117, in _call_store
+    return getattr(self._store, store_op)(*args, **kwargs)
+torch.distributed.DistNetworkError: Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/z00/jxg900/python_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in main
+    run(args)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/run.py", line 883, in run
+    elastic_launch(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 261, in launch_agent
+    result = agent.run()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 711, in run
+    result = self._invoke_run(role)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 906, in _invoke_run
+    num_nodes_waiting = rdzv_handler.num_nodes_waiting()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1263, in num_nodes_waiting
+    self._state_holder.sync()
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 423, in sync
+    set_response = self._backend.set_state(state_bits, self._token)
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 100, in set_state
+    base64_state: bytes = self._call_store(
+  File "/scratch/z00/jxg900/python_env/lib/python3.10/site-packages/torch/distributed/elastic/rendezvous/c10d_rendezvous_backend.py", line 119, in _call_store
+    raise RendezvousConnectionError(
+torch.distributed.elastic.rendezvous.api.RendezvousConnectionError: The connection to the C10d store has failed. See inner exception for details.

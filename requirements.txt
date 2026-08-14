@@ -1,0 +1,16 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+transformers==4.53.0
+sentence-transformers==5.0.0
+accelerate==1.8.1
+diffusers==0.34.0
+torch==2.7.1
+torchvision==0.22.1
+netCDF4==1.7.2
+xarray==2025.6.1
+matplotlib==3.6.2
+opencv-python==4.9.0.80
+zarr==2.18.7
+jupyterlab==3.5.2
+einops==0.8.1
+numpy==1.26.4
+ray==2.47.1
