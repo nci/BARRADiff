@@ -20,6 +20,15 @@ Run `bash run_inference.sh` to inference the Australian region. The inference pr
 
 Run `bash run_inference_global.sh` to inference the global region for the entire world.
 
+The model checkpoints are located at /g/data/dk92/data/BARRADiff on Gadi.
+
+The following directory settings are the model weights and the min/max normalizers (i.e. the `$training_data_dir/stats` folder) the inference code needs. You will need to edit the `env_vars` file to set these. The `env_vars` file is sourced by the inference scripts to get these settings. 
+
+```
+training_data_dir=/g/data/dk92/data/BARRADiff/training_set
+model_weight_dir=/g/data/dk92/data/BARRADiff/model_weights
+```
+
 ## Training
 
 * Please refer to [training set](./training_set.md) for details in file format and procedure for building training set.
