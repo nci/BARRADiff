@@ -6,7 +6,7 @@
 
 * BARRADiff has 2 billion parameters trained with fp16 mixed-precision using 8 V100 GPUs on Gadi. We employed FSDP2 within a node and DDP between nodes.
 
-* The training set has about 3 million training samples covering 12 single-level variables and pressure-level variables. Please refer to [training data](./data/training_data.py) for variable details.
+* The training set has about 3 million training samples covering 12 single-level variables and pressure-level variables. Please refer to [training_data.py](./data/training_data.py) for variable details.
 
 ## Environment Setup
 
@@ -31,7 +31,7 @@ model_weight_dir=/g/data/dk92/data/BARRADiff/model_weights
 
 ## Training
 
-* Please refer to [training set](./training_set.md) for details in file format and procedure for building training set.
+* Please refer to [training_set.md](./training_set.md) for details in file format and procedure for building training set.
 
 * Run `bash run_trainer_gpu.sh` to start the training. Please refer to [training logs](./training_logs) for our own training run details.
 
