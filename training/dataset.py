@@ -328,7 +328,13 @@ class Barra2ShardedDataset(Dataset):
         self.data_path = os.path.join(path, 'data')
         self.var_paths = {}
 
-        files = os.listdir(self.data_path)
+        # Sort the directory entries so that both the variable order
+        # (var_names) and each variable's shard-slot order are deterministic.
+        # os.listdir() order is a filesystem implementation detail (Lustre/
+        # ext4 readdir order is not a stable contract), and the flat-index ->
+        # (var, slot, sample) mapping must stay stable across restarts and
+        # filesystem events for a resumed run to read the same files.
+        files = sorted(os.listdir(self.data_path))
         test_var_name = None
         for f in files:
             var_path = os.path.join(self.data_path, f)
@@ -344,14 +350,17 @@ class Barra2ShardedDataset(Dataset):
                     test_var_name = v_name
 
         assert len(self.var_paths) > 0, f'{path} contains no variables'
+        for v_name, v_paths in self.var_paths.items():
+            v_paths.sort()
 
         with zarr.open(self.var_paths[test_var_name][0]) as ds:
             shard_shape = ds['input'].shape
 
         total_samples_per_var = shard_shape[0] * len(self.var_paths[test_var_name])
-        raw_shape = (total_samples_per_var,) + shard_shape[1:]
+        total_samples = total_samples_per_var * len(self.var_paths)
+        raw_shape = (total_samples,) + shard_shape[1:]
 
-        self.var_names = list(self.var_paths.keys())
+        self.var_names = sorted(self.var_paths.keys())
         self.dataset_shape = (len(self.var_paths), len(self.var_paths[test_var_name]), shard_shape[0])
 
         #print(f'dataset info: {self.dataset_shape}, {self.var_paths}')
