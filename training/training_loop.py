@@ -97,7 +97,10 @@ def training_loop(
 
     run_dir             = '.',      # Output directory.
     seed                = 0,        # Global random seed.
-    batch_size          = 2048,     # Total batch size for one training iteration.
+    batch_size          = 2048,     # Scheduling batch size for one training iteration (LR/EMA/checkpoint cadence).
+                                        # May exceed the samples actually consumed per iteration
+                                        # (batch_gpu * grad_accumulation * world_size); the data-stream
+                                        # position is tracked separately in state.cur_sample.
     batch_gpu           = 1,        # Limit batch size per GPU. None = no limit.
     grad_accumulation   = 1,        # Gradient accumulation
     model_shards        = 2,        # Number of model shards
@@ -128,6 +131,14 @@ def training_loop(
     #assert batch_size == batch_gpu * num_accumulation_rounds * dist.get_world_size()
     
     num_accumulation_rounds = grad_accumulation
+    # Number of dataset samples actually consumed from the data iterator per
+    # training iteration, globally: one batch_gpu-sized DataLoader batch per
+    # rank per accumulation round.  This is deliberately allowed to differ
+    # from batch_size (kept for scheduling purposes, e.g. the LR schedule);
+    # state.cur_sample tracks the data-stream position so that
+    # InfiniteSampler(start_idx=state.cur_sample) resumes exactly where the
+    # iterator left off even when batch_size != samples_per_iter.
+    samples_per_iter = batch_gpu * num_accumulation_rounds * dist.get_world_size()
     loss_scaling = loss_scaling / (batch_gpu * grad_accumulation)
     assert total_nimg % batch_size == 0
     assert slice_nimg is None or slice_nimg % batch_size == 0
@@ -138,7 +149,7 @@ def training_loop(
     # Setup dataset, encoder, and network.
     print0('Loading dataset...')
     dataset_obj = dnnlib.util.construct_class_by_name(**dataset_kwargs)
-    print0(f'dataset info: {dataset_obj.dataset_shape}, {dataset_obj.var_paths}')
+    print0(f'dataset info: {len(dataset_obj)}, {dataset_obj.dataset_shape}, {dataset_obj.var_paths}')
     ref_image, cond_image, ref_label = dataset_obj[0]
 
     encoder = dnnlib.util.construct_class_by_name(**encoder_kwargs)
@@ -201,7 +212,12 @@ def training_loop(
         model.eval().requires_grad_(False).to(device)
 
     # Setup training state.
-    state = dnnlib.EasyDict(cur_nimg=0)
+    # cur_nimg : scheduling counter (advances by batch_size per iteration; feeds
+    #            the LR/EMA schedules, status/checkpoint cadence).
+    # cur_sample: data-stream counter (advances by samples_per_iter per
+    #            iteration; feeds InfiniteSampler(start_idx=...) so resume
+    #            continues the exact sample stream).
+    state = dnnlib.EasyDict(cur_nimg=0, cur_sample=0)
     state['network_args'] = network_kwargs
     state['interface_args'] = interface_kwargs
 
@@ -211,6 +227,13 @@ def training_loop(
     checkpoint = Checkpointer(run_dir, False)
     if not checkpoint.is_empty():
         checkpoint.load(model=net, emas=ema.emas, optim=optimizer, training_states=state)
+        # Checkpoints written before the cur_sample fix only carry cur_nimg,
+        # which advanced by batch_size per iteration while the iterator
+        # actually consumed samples_per_iter.  Reconstruct the true
+        # consumed-sample position so resume continues the real data stream
+        # instead of jumping ahead by batch_size / samples_per_iter.
+        if 'cur_sample' not in state:
+            state.cur_sample = state.cur_nimg * samples_per_iter // batch_size
 
     # Print network summary.
     rows = misc.get_module_summary(net, [
@@ -238,7 +261,7 @@ def training_loop(
 
     # Main training loop.
     dataset_sampler = misc.InfiniteSampler(dataset=dataset_obj, rank=dist.get_rank(), num_replicas=dist.get_world_size(), 
-                                           seed=seed, start_idx=state.cur_nimg)
+                                           seed=seed, start_idx=state.cur_sample)
     dataset_iterator = iter(dnnlib.util.construct_class_by_name(dataset=dataset_obj, sampler=dataset_sampler, 
                                                                 batch_size=batch_gpu, **data_loader_kwargs))
     prev_status_nimg = state.cur_nimg
@@ -303,6 +326,7 @@ def training_loop(
 
         # Update EMA and training state.
         state.cur_nimg += batch_size
+        state.cur_sample += samples_per_iter
         ema.update(cur_nimg=state.cur_nimg, batch_size=batch_size)
 
         '''
