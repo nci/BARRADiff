@@ -386,6 +386,11 @@ def generate_images(
         
         vae_recon[..., hh_start:hh_end, ww_start:ww_end] = patch.cpu().numpy()
 
+    vae_recon *= data['unit_conversion'][0]
+
+    mae = np.mean(np.abs(vae_recon[0] - target_image[0]))
+    logger.info(f'{var_name} MAE: {mae}')
+
     cfg_scale = sampler_kwargs['guidance']
 
     pred_data_root = os.path.join(outdir, f'{var_time}/data')
